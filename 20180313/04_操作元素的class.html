@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title></title>
+  <style>
+    div {
+      width: 200px;
+      height: 200px;
+    }
+    .red {
+      background: red;
+    }
+    .blue {
+      background: blue;
+    }
+    .btn {
+      width: 200px;
+      height: 40px;
+      margin: 10px;
+    }
+  </style>
+</head>
+<body>
+  <button class="btn">按钮</button>
+  <div class="red"></div>
+  <script>
+    /**
+     * 需求：点击按钮修改div的class从red变为blue
+     */
+    
+    var btn = document.querySelector('.btn');
+    var red = document.querySelector('.red');
+    
+    btn.onclick = function (){
+      // 在JS当中操作class使用 className
+      red.className = 'blue';
+    }
+    
+    
+  </script>
+</body>
+</html>

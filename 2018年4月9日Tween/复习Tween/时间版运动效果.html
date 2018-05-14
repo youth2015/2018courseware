@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    #box{
+        width: 100px;
+        height: 100px;
+        background: red;
+        position: absolute;
+        left: 0;
+        top:0;
+    }
+</style>
+<body>
+
+<div id="box"></div>
+
+<script>
+    let oBox=document.getElementById("box");
+    let d=600;
+    let c=1000;
+
+    document.onclick=function(){
+        let oldTime=Date.now();//初时间;
+
+        timer=setInterval(function(){
+            let t=Date.now()-oldTime;
+
+            if (t>=c){ //现在的时间大于等于1秒钟用去的就让它停下来;
+                t=c;
+                clearInterval(timer)
+            }
+            oBox.style.left=d*(t/c)+"px";
+            console.log(oBox)
+
+
+        },16.7)
+    }
+
+</script>
+</body>
+</html>

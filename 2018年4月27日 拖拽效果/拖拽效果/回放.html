@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+	#box{
+	    width:100px;
+	    height:100px;
+	    background: red;
+	    position: absolute;
+	    top:50px;
+	    left:0;
+	}    
+</style>
+	<body>
+		<button id="btn">回放</button>
+    	<div id="box"></div>
+		<script>
+			const oBox=document.getElementById("box");
+			const oBtn=document.getElementById("btn");
+			
+			//创建xy的数组
+			let arrX=[oBox.offsetLeft],arrY=[oBox.offsetTop];
+			
+			oBox.onmousedown=function(ev){
+				let disx=ev.pageX-oBox.offsetLeft;
+				let disy=ev.pageY-oBox.offsetTop;
+				
+				document.onmousemove=function(ev){					
+					oBox.style.left=ev.pageX-disx+"px";
+					oBox.style.top=ev.pageY-disy+"px";					
+					arrX.push(ev.pageX-disx);
+					arrY.push(ev.pageY-disy)				
+					console.log(arrX)
+				}
+				
+				document.onmouseup=function(){					
+					document.onmousemove=document.onmouseup=null;
+				}
+				
+				return false;
+				
+			}
+			
+			let timer=null;
+			
+			oBtn.onclick=function(){
+				
+				timer=setInterval(function(){		
+					
+				oBox.style.left=arrX.pop()+"px";
+				
+				oBox.style.top=arrY.pop()+"px";
+				
+				},20);
+				
+				if(arrX.length===0||arrY.length===0){
+					clearInterval(timer);
+				}
+			}
+			
+		</script>	
+	</body>
+</html>

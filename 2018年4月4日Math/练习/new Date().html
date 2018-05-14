@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    #box{
+        width:100px;
+        height: 100px;
+        background: red;
+        position: absolute;
+        left:0;
+        top:0;
+    }
+</style>
+<body>
+<div id="box"></div>
+<script>
+
+//        let dat=new Date(1000*60*1);
+//
+//        console.log(dat);
+//
+//        let dat1=new Date(-1000*60*1)
+//        console.log(dat1)
+
+//        let oldTime=Date.now();
+//        let YongTimg=Date.now()-oldTime;
+//        console.log(YongTimg);
+
+        const oBox=document.querySelector("#box");
+        let timer=null;
+
+        let num=0;
+        document.onclick=function(){
+            let oldTime=Date.now();
+            timer=setInterval(function(){
+                let Nowtime=Date.now()-oldTime;
+
+                oldTime=Date.now();
+
+                if(num>600){
+
+                    clearInterval(timer)
+                }else{
+                    num+=10;
+                    oBox.style.left=num+"px";
+                }
+
+            },16.7)
+        }
+</script>
+</body>
+</html>

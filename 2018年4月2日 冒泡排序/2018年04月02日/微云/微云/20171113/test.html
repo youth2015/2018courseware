@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title></title>
+</head>
+<body>
+  <script>
+    const db = {
+      '0': {
+        id: 0,
+        name: '根目录'
+      },
+      '1': {
+        id: 1,
+        pId: 0,
+        name: '电影'
+      },
+      '2': {
+        id: 2,
+        pId: 0,
+        name: '音乐'
+      },
+      '3': {
+        id: 3,
+        pId: 1,
+        name: '枪战片'
+      },
+      '4': {
+        id: 4,
+        pId: 2,
+        name: '流行音乐'
+      },
+      '5': {
+        id: 5,
+        pId: 2,
+        name: '古典音乐'
+      }
+    };
+    
+    localStorage.setItem('fq', JSON.stringify(db));
+    
+  </script>
+</body>
+</html>

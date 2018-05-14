@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		*{
+			margin:0;
+			padding:0;
+		}
+		
+		span{
+			width: 120px;
+			height: 40px;
+			border:1px solid #000;
+			line-height: 40px;
+			color: #999;
+			margin:2px;
+			display: inline-block;
+			text-align: center;
+			cursor: pointer;
+		}
+	</style>
+	<body>
+		<div class="box">
+			<!--<span>1*1=1</span>-->
+		</div>
+		
+		<script type="text/javascript">
+			window.onload=function(){
+				var oBox=document.querySelector(".box");
+				var oSpan=document.querySelector("span");
+			
+				var str="";
+
+				for(var i=1;i<=9;i++){
+					for(var j=1;j<=i;j++){						
+						str+=`<span>${i}*${j}=${i*j}</span>`;						
+					};					
+					str+='</br>';		
+				};
+				oBox.innerHTML=str;
+
+				
+				
+				
+				
+				
+			}
+			
+			
+		</script>
+	</body>
+</html>

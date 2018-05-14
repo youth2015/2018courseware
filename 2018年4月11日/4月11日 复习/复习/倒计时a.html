@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        //未来的时间-现在的时间=剩下的时间。
+
+        let f=new Date("2018,4,11,18:00:00");
+          autoPlay();
+          timer=setInterval(autoPlay,1000);
+          function autoPlay() {
+              let o=new Date();
+              let t=Math.floor(f-o)/1000;
+              let d=Math.floor(t/86400);
+              t%=864000;
+              let h=Math.floor(t/3600);
+              t%=3600;
+              let m=Math.floor(t/60);
+              t%=60;
+              console.log(h+'时'+Math.floor(t)+"分");
+       }
+
+
+    </script>
+</body>
+</html>

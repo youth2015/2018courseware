@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			*{
+				margin:0;
+				padding: 0;
+				
+			}
+			body{
+				width:100%;
+				height:100%;
+				background: url(img/bg.jpg) no-repeat;
+			}
+			.clearfix{
+				*zoom:1;
+			}
+			.clearfix:after{
+				content: "";
+				display: block;
+				clear: both;
+			}
+			.iphone{
+				width: 308px;
+				height:538px;
+				background:#e5e3ec;
+				border-radius: 10px;
+				margin-top: 50px;
+				margin-left: 50px;
+				padding:42px 18px 72px;
+			}
+			.iphoneWrap{
+				width: 308px;
+				height: 538px;
+				border: 1px solid #a4a3ac;
+				background: #fff;
+			}
+			.iphoneBox{
+				height: 460px;
+				margin-top: 20px;
+				overflow: hidden;
+			}
+			.setUp{
+				height: 58px;
+				background:#e3e3e3 ;
+			}
+			.imgUp{
+				width: 35px;
+				height: 40px;
+				margin:10px;
+				float: left;
+				cursor: pointer;
+			}
+			.textInput{
+				width:180px;
+				height: 40px;
+				border-radius: 4px;
+				background: #fff;
+				float: left;
+				outline: none;
+				border: none;
+				margin-top: 10px;
+				margin-left: 10px;
+				color: #bab9bd;
+				padding-left: 5px;
+			}
+			.send{
+				float: left;
+				width: 54px;
+				height: 40px;
+				line-height: 40px;
+				text-align: center;
+				color: #e73b60;
+				font-size: 18px;
+				display: block;
+				margin-top: 10px;
+				cursor: pointer;
+			}
+			
+			.iphoneLeft{
+				margin-bottom: 5px;
+				position: relative;
+			}
+			.iconL{
+				width: 35px;
+				height: 40px;
+				margin:10px;
+				float: left;
+				
+			}
+			.iconL img{
+				width: 35px;
+				height: 40px;
+				vertical-align: top;
+				float: right;
+			}
+			.dd1{
+				padding: 10px;
+			    font-size: 12px;
+			    background:#E3E3E3;
+			    color: #000;
+			    overflow: hidden;
+			    margin-right: 20px;
+			    margin-left: 0;
+				line-height: 30px;
+				float: left;
+				border-radius: 10px;
+				max-width: 210px;
+			}
+			
+			.iphoneRight{
+				/*position: relative;*/
+			}
+			.iconR{
+				margin:10px;
+				
+				float: right;
+			}
+			.iconR img{
+				width: 35px;
+				height: 40px;
+				vertical-align: top;
+				float: right;
+			}
+			.dd2{	
+			    font-size: 12px;
+			    background: #908cb4;
+			    color: #fff;
+			    overflow: hidden;
+			    line-height: 30px;
+			    border-radius: 10px;
+			    float:right;
+			    max-width: 210px;
+			    margin-left:20px;
+			    margin-right: 0;			
+			}
+		</style>
+	</head>
+	<body>
+		<div class="iphone">
+			<div class="iphoneWrap">
+				<div class="iphoneBox">
+					<!--<dl class="iphoneLeft clearfix">
+						<dt class="iconL"><img src="img/lico.png"/></dt>
+						<dd class="dd1"></dd>
+					</dl>
+					
+					<dl class="iphoneRight clearfix">
+						<dt class="iconL iconR"><img src="img/rico.png"/></dt>
+						<dd class="dd1 dd2"></dd>	
+					</dl>-->
+				</div>
+				<div class="setUp">
+					<img src="img/lico.png" class="imgUp" />					
+					<input type="text" placeholder="请输入..." class="textInput" />
+					<span class="send">发送</span>
+					
+				</div>
+			</div>
+		</div>	
+		<script type="text/javascript">
+			var Setup=document.querySelector(".setUp");
+			var oText=document.querySelector(".textInput");
+			var oSend=document.querySelector(".send");
+			var oImg=document.querySelector(".imgUp");
+			var oIphon=document.querySelector(".iphoneBox");
+			var arr=['img/lico.png','img/rico.png'];			
+			var offON=true;			
+			oText.focus();
+			oText.value="";		
+			
+			oImg.onclick=function(){						
+				if(offON){
+					oImg.src=arr[1];
+//					offON=false;
+				}else{
+					oImg.src=arr[0];
+//					offON=true;
+				}				
+				offON=!offON;
+			}
+			
+			var leftValue='';
+			var rightValue='';			
+			oSend.onclick=function(){
+				var oValue=oText.value;				
+				leftValue=`<dl class="iphoneLeft clearfix">
+							<dt class="iconL"><img src="${arr[0]}"/></dt>
+							<dd class="dd1">${oValue}</dd>
+						</dl>`;							
+				rightValue=`<dl class="iphoneRight clearfix">
+								<dt class="iconL iconR"><img src="${arr[1]}"/></dt>
+								<dd class="dd1 dd2">${oValue}</dd>	
+							</dl>`;							
+				if(oValue==""){		
+					alert("请输入文字")
+				}else{	
+					if(offON){	
+						oIphon.innerHTML+=leftValue;
+					}else{
+						oIphon.innerHTML+=rightValue;	
+					}										
+				}				
+				oText.value = '';
+				oText.focus();
+			}
+			
+		</script>
+		
+	</body>
+</html>

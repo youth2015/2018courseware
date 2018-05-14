@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        const arr=[5,4,3,2,1];
+
+        for(var i=0;i<arr.length-1;i++){
+            for (j=0;j<arr.length-i-1;j++){
+                let a=arr[j];
+                let b=arr[j+1];
+
+                if(a>b){
+                    [arr[j],arr[j+1]]=[b,a];
+                }
+            }
+        }
+        console.log(arr) ;//12345
+
+    </script>
+</body>
+</html>

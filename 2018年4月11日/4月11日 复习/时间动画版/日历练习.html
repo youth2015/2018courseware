@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding:0
+        }
+        #box{
+            width:408px;
+            height: 494px;
+            background: #555;
+            border: 1px solid #848484;
+            padding:10px;
+        }
+        ul {
+            width:428px;
+            list-style: none;
+        }
+        ul li{
+            width:56px;
+            height: 48px;
+            border: 1px solid #555;
+            float: left;
+            color: #fff;
+            line-height: 48px;
+            text-align: center;
+        }
+        ul li.active{
+            color:#555;
+            background: #fff;
+            border: 1px solid yellowgreen;
+        }
+        ul li.old{
+            color: #848484;
+        }
+        #time h5{
+            font-size: 48px;
+            color:floralwhite;
+            font-weight: 200;
+        }
+        #time p{
+            color:floralwhite;
+            letter-spacing: 2px;
+        }
+        #time{
+            padding-bottom: 10px;
+            border-bottom: 1px solid #fff;
+            opacity: .8;
+        }
+        #time2{
+            margin-top:10px;
+            overflow: hidden;
+        }
+        #time2 p{
+            float: left;
+            color:floralwhite;
+            letter-spacing: 2px;
+            line-height: 25px;
+
+        }
+        #downUp{
+            float: right;
+        }
+        #downUp a{
+            color:floralwhite;
+            font-size:20px;
+        }
+        #downUp a:last-child{
+            margin-left:20px;
+        }
+
+
+
+    </style>
+</head>
+<body>
+<div id="box">
+    <div id="time">
+        <h5 id="h5">14:10:00</h5>
+        <p id="p">2018年4月11日</p>
+    </div>
+    <div id="time2">
+        <p id="p2">2018年4月</p>
+        <div id="downUp">
+            <a id="prev" href="javascript:;">↑</a>
+            <a id="next" href="javascript:;">↓</a>
+        </div>
+    </div>
+    <ul id="week"></ul>
+    <ul id="date"></ul>
+</div>
+<script>
+    /*
+     1.数码时钟
+     2.年月日
+     3.年月
+     4.周几
+     5.日期
+     */
+
+    const h5 = document.getElementById('h5');
+    const p = document.getElementById('p');
+    const p2 = document.getElementById('p2');
+    const week = document.getElementById('week');
+    const dateTwo = document.getElementById('date');
+    const next = document.getElementById('next');
+    const prev = document.getElementById('prev');
+    let num = 0; //当前日期
+
+    function Setime() {
+
+    }
+    
+
+</script>
+</body>
+</html>

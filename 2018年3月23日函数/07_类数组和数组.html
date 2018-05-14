@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title></title>
+</head>
+<body>
+  <script>
+    // 判断是否是数组
+    var metas = document.querySelectorAll('meta');
+    var obj = {
+      '0': 'a',
+      '1': 'b',
+      length: 2
+    }
+    var arr = [1, 2, 3]
+    
+    // 可以使用  Array.isArray(要判断的值) 来判断是否是数组
+    
+    // function fn(){
+    //   console.log(Array.isArray(arguments));
+    // }
+    // 
+    // fn(1)
+    
+    // 数据和类数组的区别
+    // var arr = [1, 2, 3, 4, 5]
+    // 
+    // console.log(arr.slice(2));
+    
+    // function test(){
+    //   console.log(arguments.slice(2));
+    // }
+    // 
+    // test(1, 2, 3, 4, 5)
+    
+    // 类数组转换为数组
+    // var ret = Array.from(类数组)  ret 就是转换后的数组
+    
+    // metas = Array.from(metas)
+    
+    // console.log(Array.isArray(metas));
+    
+    // metas.length = 1
+    
+    // console.log(metas);
+    
+    // metas = [...metas]
+    // 
+    // console.log(metas);
+    
+    // ... 叫做扩展运算符，可以将数据结构进行展开
+    
+    // var arr1 = [1, 2, 3]
+    // var arr2 = [4, 5, 6]
+    // 
+    // var arr3 = [...arr1, ...arr2]
+    // 
+    // console.log(arr3);
+    
+    // -----------------------------------------------
+    // var obj1 = { a: 1, b: 2}
+    // 
+    // var obj2 = { x: 'ok', ...obj1 }
+    // 
+    // console.log(obj2);
+    
+    // -------------------------------------------
+    
+    
+    
+    
+    
+    
+    
+    
+  </script>
+</body>
+</html>

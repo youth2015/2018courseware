@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.red{
+				width: 200px;
+				height: 200px;
+				background: red;
+			}
+			.blue{
+				width: 200px;
+				height: 200px;
+				background: blue;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="button" value="按钮" class="btn" />
+		<div class="red"></div>
+		
+		<script type="text/javascript">
+			var oBtn=document.querySelector(".btn");
+			var oRed=document.querySelector(".red");
+			
+			oBtn.onclick=function(){
+				oRed.className="blue";
+				
+			}
+		</script>
+		
+	</body>
+</html>

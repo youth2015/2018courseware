@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin:0;
+        padding:0;
+        list-style: none;
+    }
+    #div2{
+        margin: 100px auto;
+        width: 980px;
+        height: 100px;
+    }
+    #div2 ul{
+        width: 500px;
+        height:70px;
+        margin:0 auto;
+    }
+    #div2 ul li{
+        float: left;
+        position: relative;
+        width: 50px;
+        height:70px;
+        overflow: hidden;
+    }
+    #div2 ul li img{
+
+        width: 50px;
+        height:70px;
+    }
+    li div{
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+</style>
+<body>
+
+
+<div id="div2">
+    <ul>
+        <li>
+            <div>
+                <img src="img/0.png"/>
+                <img src="img/0.png"/>
+            </div>
+        </li>
+        <li>
+            <div>
+                <img src="img/0.png"/>
+                <img src="img/0.png"/>
+            </div>
+        </li>
+        <li>
+            <div>
+                <img src="img/second1.png"/>
+            </div>
+        </li>
+        <li>
+            <div>
+                <img src="img/0.png"/>
+                <img src="img/0.png"/>
+            </div>
+        </li>
+        <li>
+            <div>
+                <img src="img/0.png"/>
+                <img src="img/0.png"/>
+            </div>
+        </li>
+        <li>
+            <div>
+                <img src="img/second1.png"/>
+            </div>
+        </li>
+        <li>
+            <div>
+                <img src="img/0.png"/>
+                <img src="img/0.png"/>
+            </div>
+        </li>
+        <li>
+            <div>
+                <img src="img/0.png"/>
+                <img src="img/0.png"/>
+            </div>
+        </li>
+
+    </ul>
+</div>
+<script src="js/tween.js"></script>
+<script type="text/javascript">
+    const  oDiv2=document.getElementById("div2");
+    const  aLi=oDiv2.getElementsByTagName("li");
+
+    fnTime();
+
+    function fnTime(){
+        let d=new Date();
+        let H=d.getHours();
+        let M=d.getMinutes();
+        let s=d.getSeconds();
+        let str=toD(H)+":"+toD(M)+":"+toD(s);
+
+        function aLitime(li,idex) {
+            var oDiv = li.getElementsByTagName('div')[0],
+                 aImg =li.getElementsByTagName('img');
+
+                if(str.charAt(idex)==":"){
+                    aImg[0].src="img/second1.png";
+                    setTimeout(function () {
+                        aImg[0].src="img/0.png";
+                    },500)
+                }else {
+                    aImg[1].src='img/'+str.charAt(idex)+'.png';
+                    if (aImg[0].src!=aImg[1].src){
+                        move({
+                            el:oDiv,
+                            attr:{
+                                top:-70
+                            },
+                            d:500,
+                            callback:function () {
+                                aImg[0].src = aImg[1].src;
+                                oDiv.style.top = 0 + 'px';
+                            }
+                        })
+                    }
+                }
+
+        }
+        for(let i=0;i<aLi.length;i++){
+            aLitime(aLi[i],i)
+        }
+    }
+    setInterval(fnTime,1000);
+
+
+    function toD(n) {
+        if(n<10){
+            return "0"+n;
+        }else {
+            return ""+n;
+        }
+    }
+</script>
+</body>
+</html>

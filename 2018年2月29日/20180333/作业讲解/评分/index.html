@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>百度评分</title>
+		<style>
+			body,h1 {
+				margin: 0;
+				padding: 0;
+				-webkit-font-smoothing: antialiased;
+			}
+			.starts{
+				overflow:hidden;
+			}
+			.starts span{
+				display: block;
+				float: left;
+				padding: 3px;
+			}
+		</style>
+		<link rel="stylesheet" type="text/css" href="pingfen.css"/>
+	</head>
+	<body>
+		<div class="wrap">
+			<div class="baidu">
+				<div class="caption">
+					<h1></h1>
+					<span>总体评价</span>
+				</div>
+				<div class="context">
+					<div class="starts">
+						<span>☆</span>
+						<span>☆</span>
+						<span>☆</span>
+						<span>☆</span>
+						<span>☆</span>
+					</div>
+					<div class="info"></div>
+				</div>
+				<div class="tips">
+					小提示：点击星星就能打分
+				</div>
+			</div>
+		</div>
+		<script>
+		// ★
+		const starts = document.querySelectorAll('.starts span');
+		
+		const len = starts.length
+		let selectNum = 0
+		
+		for (let i=0; i<len; ++i) {
+			starts[i].onmouseover = function (){
+				selectStart(i+1)
+			}
+			
+			starts[i].onmouseout = function (){
+				selectStart (selectNum)
+			}
+			
+			starts[i].onclick = function (){
+				// 记录点击的时候 点击的是第几个
+				selectNum = i+1
+			}
+		}
+		
+		function selectStart (n) {
+			for (let j=0; j<len; j++) {
+				if (j < n) {
+					if (j <= 1) {
+						starts[j].style.color = 'pink'
+					} else {
+						for (let i=0; i<=j; i++) {
+							starts[i].style.color = 'yellow'
+						}
+					}
+					starts[j].innerHTML = '★'
+				} else {
+					starts[j].innerHTML = '☆'
+					starts[j].style.color = ''
+				}
+			}
+		}
+		
+		
+		</script>
+	</body>
+</html>

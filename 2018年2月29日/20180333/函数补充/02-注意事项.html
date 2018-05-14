@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title></title>
+</head>
+<body>
+  <script>
+    /**
+     * 箭头函数通常用在 回调函数
+     *
+     * 注意事项：
+     *  - 箭头函数没有自己的this，它内部的this是声明的时候所在位置的this
+     *  - 箭头函数没有 arguments
+     *  -。。。。
+     */
+    
+    // [1, 2, 3].forEach(item => console.log(item))
+    
+    document.onclick = function () {
+      // fn(this)
+      
+      ;(() => {
+        console.log(this);
+        this.body.style.backgroundColor = 'red'
+      })();
+      
+      // function fn (that) {
+      //   console.log(this);
+      //   that.body.style.backgroundColor = 'red'
+      // }
+    }
+    
+    
+    // function fn () {
+    //   let arg = arguments
+    // 
+    //   const inner = () => {
+    //     console.log(arguments === arg);
+    //   }
+    //   inner();
+    // }
+    // 
+    // fn(1,2,3)
+    
+    const add = (...rest) => {
+      let x = 0
+      rest.forEach((item) => {
+        x += item
+      })
+      return x
+    }
+    
+    console.log(add(1, 2, 3, 4));
+    
+    
+    
+    
+  </script>
+</body>
+</html>

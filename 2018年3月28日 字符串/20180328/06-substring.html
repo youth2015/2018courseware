@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title></title>
+</head>
+<body>
+  <script>
+    /**
+     * str.substring(indexStart[, indexEnd])
+     *
+     * substring方法返回一个字符串在开始索引到结束索引之间的一个子集, 或从开始索引直到字符串的末尾的一个子集。
+     *
+     * indexStart: 一个 0 到字符串长度之间的整数。
+     * indexEnd: 可选。一个 0 到字符串长度之间的整数。
+     *
+     * 如果 indexStart 等于 indexEnd，substring 返回一个空字符串。
+     * 如果省略 indexEnd，substring 提取字符一直到字符串末尾。
+     * 如果任一参数小于 0 或为 NaN，则被当作 0。
+     * 如果任一参数大于 stringName.length，则被当作 stringName.length。
+     * 如果 indexStart 大于 indexEnd，则 substring 的执行效果就像两个参数调换了一样。例如，str.substring(1, 0) == str.substring(0, 1)。
+     */
+    
+    var str = 'abcde'
+    
+    console.log(str.substring(1, 3));  // 'bc' [1, 3)
+    console.log(str.substring(3, 1));  // 'bc'
+    console.log(str.substring(1));  // 'bcde'
+    console.log(str.substring(-1000));  // ==> 0 abcde
+    console.log(str.substring(100, 1)); // 'bcde'
+    
+    
+    
+  </script>
+</body>
+</html>

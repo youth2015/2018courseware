@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title></title>
+  <style>
+    .box1 {
+      width: 200px;
+      height: 200px;
+      background-color: red;
+      margin: 100px;
+    }
+    .box2 {
+      transform: rotate(45deg);
+    }
+    .box3 {
+      border: 10px solid green;
+    }
+    
+    .box4 {
+      display: none;
+    }
+    
+    button {
+      width: 150px;
+      height: 60px;
+    }
+  </style>
+</head>
+<body>
+  <button class="btn1">旋转45度</button>
+  <button class="btn2">加上10px边框</button>
+  <button class="btn3">去掉旋转45度</button>
+  <button class="btn4">去掉10px边框</button>
+  <button class="btn5">显示或者隐藏box</button>
+  <div class="box1"></div>
+  <script>
+    var btn1 = document.querySelector('.btn1');
+    var btn2 = document.querySelector('.btn2');
+    var btn3 = document.querySelector('.btn3');
+    var btn4 = document.querySelector('.btn4');
+    var btn5 = document.querySelector('.btn5');
+    var box =  document.querySelector('.box1');
+    
+    /**
+     * ele.classList  获取元素的所有的 className 的列表
+     *  - ele.classList.add('class') 添加某个className
+     *  - ele.classList.remove('class') 去掉某个className
+     *  - ele.classList.toggle('class') 有某个class就删除这个class，没有某个class就添加这个class
+     */
+    
+    btn1.onclick = function (){
+      box.classList.add('box2')
+    };
+    
+    btn2.onclick = function (){
+      box.classList.add('box3')
+    };
+    
+    btn3.onclick = function (){
+      box.classList.remove('box2')
+    };
+    
+    btn4.onclick = function (){
+      box.classList.remove('box3')
+    };
+    
+    // 显示或者隐藏
+    btn5.onclick = function (){
+      box.classList.toggle('box4')
+    }
+  </script>
+</body>
+</html>

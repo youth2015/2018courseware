@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title></title>
+  <style>
+    .list {
+      width: 400px;
+      height: 200px;
+      border: 2px solid #000;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+    .list span {
+      width: 50px;
+      height: 50px;
+      border: 1px solid #000;
+    }
+  </style>
+</head>
+<body>
+  <div class="list">
+    <span class="list-item">1</span>
+    <span class="list-item">2</span>
+    <span class="list-item">3</span>
+  </div>
+  <div class="list2">
+    <span class="list-item">3</span>
+    <span class="list-item">4</span>
+    <span class="list-item">5</span>
+  </div>
+  <div class="list3">
+    <span class="list-item">1</span>
+    <span class="list-item">2</span>
+  </div>
+  <script>
+    /**
+     * 获取一组元素：
+     *   ele.getElementsByTagName('tag selector')
+     *
+     * 通过 css 选择器获取
+     *   document.querySelectorAll('css selector')
+     */
+    
+    // var list2 = document.querySelector('.list2');
+    // var list2Spans = list2.getElementsByTagName('span');
+    // 
+    // console.log(list2Spans);
+    
+    // list2Spans 不是一个数组，是个类数组
+    
+    // list2Spans.length = 1;
+    // 
+    // console.log(list2Spans.length);
+    
+    var listSpans = document.querySelectorAll('.list .list-item');
+    
+    console.log(listSpans);
+    
+    // 这是一个错误的代码
+    listSpans.style.backgroundColor = 'red';
+    
+  </script>
+</body>
+</html>

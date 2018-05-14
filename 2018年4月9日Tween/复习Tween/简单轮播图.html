@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style:none;
+        }
+        #box{
+            width:447px;
+            height: 245px;
+            border: 1px solid #000;
+            position: relative;
+            overflow: hidden;
+        }
+        ul{
+            position: absolute;
+        }
+        li{
+            width:447px;
+            height: 245px;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <ul id="ul">
+        <li>
+            <img src="img/1.jpg" alt="">
+        </li>
+        <li>
+            <img src="img/2.jpg" alt="">
+        </li>
+        <li>
+            <img src="img/3.jpg" alt="">
+        </li>
+        <li>
+            <img src="img/4.jpg" alt="">
+        </li>
+    </ul>
+</div>
+<script src="tween.js"></script>
+<script>
+    const oUl=document.getElementById("ul");
+    const aLi=oUl.getElementsByTagName("li");
+
+    let w=447;
+    let timer=null;
+    let len=aLi.length;
+    let num=0;
+    oUl.style.width= w * len+"px";
+    go();
+
+    timer=setInterval(go,1000);
+
+    function go() {
+       move({
+           el:oUl,
+           d:300,
+           attr:{
+                left:-w*num
+           }
+       });
+        num++;
+        num%=len;
+    }
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title></title>
+</head>
+<body>
+  <script>
+    // 50 个小孩  依次报数， 数到 3 退出， 问最后谁赢？
+    
+    const children = []
+    
+    for (let i=1; i<=50; i++) {
+      children.push(i)
+    }
+    
+    // while (children.length > 1) {
+    //   for (let i=0; i<2; i++) {
+    //     children.push(children.shift())
+    //   }
+    //   children.shift()
+    // }
+    // 
+    // console.log(children);
+    
+    for (let i=0; i<Infinity; i++) {
+      if (children.length === 1) break;
+      
+      if (i < 2) {
+        children.push(children.shift())
+      } else {
+        children.shift()
+        i = -1
+      }
+    }
+    
+    console.log(children);
+    
+    
+  </script>
+</body>
+</html>

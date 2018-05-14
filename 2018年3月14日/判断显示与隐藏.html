@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		.box{
+			width: 400px;
+			height: 400px;
+			background: red;
+			display: none;
+		}
+	</style>
+	<body>
+		<input type="button" value="按钮" class="btn" />
+		<div class="box"></div>
+		
+		<script type="text/javascript">
+			window.onload=function(){
+				var oBox=document.querySelector(".box");
+				var oInput=document.querySelector(".btn");						
+				oInput.onclick=fn;	
+				
+				var invoke=true;
+				
+//				function fn(){					
+//					if(oBox.style.display=="block"){
+//						oBox.style.display="none";
+//					}else{
+//						oBox.style.display="block";
+//					}					
+//				}	
+				//判断条件?条件成立要做的事:条件不成立要做的事;
+				function fn(){
+					//var oX=oBox.style;
+					
+					oBox.style.display=oBox.style.display=="block"?"none":"block";
+				
+					//invoke=!invoke;
+				}
+				
+			}
+		</script>
+	</body>
+</html>

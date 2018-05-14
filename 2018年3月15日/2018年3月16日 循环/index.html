@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<style>
+		.box{
+			width: 100px;
+			height: 100px;
+			background: red;
+		}
+	</style>
+	<body>
+		<div class="box">
+			
+		</div>
+		
+		<script type="text/javascript">
+			var oBox=document.querySelector(".box");
+			var str="";
+			
+//			for(var i=0;i<1000;i++){
+//				oBox.innerHTML+=`<div>${i+1}</div>`;
+//			}
+
+			for(var i=0;i<100;i++){
+				
+				str+=`<div>${i+1}</div>`;
+			}
+			
+			oBox.innerHTML+=str;
+			
+		</script>
+	</body>
+</html>

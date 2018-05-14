@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<!--时间版运动-->
+	<style>
+		#box{
+			width: 100px;
+			height: 100px;
+			background: red;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+	</style>
+	<body>
+		<div id="box"></div>
+		
+		<script type="text/javascript">
+			const oBox=document.getElementById("box");
+
+			let d=600;
+			let c=1000;
+			let b=parseFloat(getComputedStyle(oBox).left);
+			
+			document.onclick=function(){
+				//现在的时间-刚才的时间=花费的时间
+				let oldDate=Date.now();
+				//当花费的时间大于或者等于总时间，就让花费的时间=总时间。		
+				let timer=setInterval(function(){
+
+					let t=Date.now()-oldDate;
+					
+					if(t>=c){
+						clearInterval(timer)
+					}
+					
+					oBox.style.left=d*(t/c)+"px";
+					
+				},16.7)				
+			}
+			
+			
+			
+		</script>
+	</body>
+</html>

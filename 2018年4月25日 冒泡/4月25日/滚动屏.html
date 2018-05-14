@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body style="height: 3000px;">
+		<script>
+			let o=true;
+			if(typeof window.onmousewheel==="object"){
+				//判断它是在谷歌和IE上的是否支持
+				window.onmousewheel=function(ev){
+					o=ev.wheelDelta>0?true:false;
+					fn(o);
+				}									
+			}else{
+				//否则是在火狐上是否支持
+				window.addEventListener("DOMMouseScroll",function(ev){
+					
+					o=ev.detail>0?true:false;
+					fn(o);
+				})
+			};
+			
+			function fn(o){
+				console.log(o)
+			}
+		</script>
+	</body>
+</html>

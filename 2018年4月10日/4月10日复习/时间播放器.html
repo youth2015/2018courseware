@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+<body>
+<div id="div"></div>
+
+<div id="div2">
+    <img src="img/0.png" />
+    <img src="img/0.png" />
+    <img src="img/second1.png" />
+    <img src="img/0.png" />
+    <img src="img/0.png" />
+    <img src="img/second1.png" />
+    <img src="img/0.png" />
+    <img src="img/0.png" />
+</div>
+
+<script type="text/javascript">
+    const  oDiv2=document.getElementById("div2");
+    const  oImg=oDiv2.getElementsByTagName("img");
+
+    fnTime();
+    setInterval(fnTime,1000);
+    function fnTime(){
+        let d=new Date();
+        let H=d.getHours();
+        let M=d.getMinutes();
+        let s=d.getSeconds();
+        let str=toD(H)+":"+toD(M)+":"+toD(s);
+        console.log(str);
+        for(let i=0;i<str.length;i++){
+            if(i!=2&&i!=5){
+                oImg[i].src= 'img/'+str[i]+'.png'
+                //需要注意这里的字符串拼接是用的单引号
+            }
+        }
+    }
+    function toD(n) {
+        if(n<10){
+            return "0"+n;
+        }else {
+            return ""+n;
+        }
+    }
+</script>
+</body>
+</html>

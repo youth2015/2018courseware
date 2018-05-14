@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title></title>
+</head>
+<body>
+  <input type="text">
+  <select class="select">
+    <option value="1">+</option>
+    <option value="2">-</option>
+    <option value="3">*</option>
+    <option value="4">/</option>
+    <option value="5">%</option>
+  </select>
+  <input type="text">
+  <input type="button" value="=">
+  <input type="text">
+  <script>
+    var texts = document.querySelectorAll('input[type=text]');
+    var select = document.querySelector('.select');
+    var btn = document.querySelector('input[type=button]');
+    
+    btn.onclick = function (){
+      var val1 = texts[0].value*1
+      var val2 = texts[1].value*1
+      var symbol = select.value
+      var res;
+      
+      // 只做比较
+      switch (symbol) {
+        case '1':   // 这里做的是 === 比较
+          res = val1 + val2
+          // break;  如果不写 break 那么会做 穿透处理
+        case '1':
+          res = 'ok';
+          break;
+        case '2':
+          res = val1 - val2
+          break;
+        case '3':
+          res = val1 * val2
+          break;
+        default:
+          res = NaN
+      }
+      
+      texts[2].value = res
+    }
+    
+  
+  </script>
+</body>
+</html>

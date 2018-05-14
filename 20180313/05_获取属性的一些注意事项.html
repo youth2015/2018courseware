@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title></title>
+  <style>
+    .box {
+      /*display: none;*/
+      /* display: block; */
+    }
+  </style>
+</head>
+<body>
+  <div class="box" style="width:100px;height:100px;background:#f00;">123</div>
+  <img src="./img/1.jpg" width="600">
+  <script>
+    var box = document.querySelector('.box');
+    
+    // 属性操作获取的颜色不一定准确
+    
+    // console.log(box.style.background);
+    
+    // 属性的读取，读取的都是行间的样式，如果行间没有设置，那么是获取不到的。
+    
+    // console.log(box.style.display);
+    // console.log(box.style.width);
+
+    // 图片的src属性，获取到的是一个绝对路径
+    var img = document.querySelector('img');
+    console.log(img.src);
+  </script>
+</body>
+</html>

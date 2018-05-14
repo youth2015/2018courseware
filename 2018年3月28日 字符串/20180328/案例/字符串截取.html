@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .container {
+      width: 1000px;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+    }
+    
+    .container div {
+      width: 300px;
+      height: 400px;
+      border: 2px solid #000;
+      padding: 30px;
+      box-sizing: border-box;
+      line-height: 1.5em;
+      font-size: 20px;
+    }
+    .container .btn {
+      width: 150px;
+      height: 60px;
+      font-size: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="left">3月25日至28日，应中共中央总书记、国家主席习近平邀请，朝鲜劳动党委员长、国务委员会委员长金正恩对我国进行非正式访问。访问期间，习近平在人民大会堂同金正恩举行会谈。习近平总书记和夫人彭丽媛为金正恩委员长和夫人李雪主举行欢迎宴会并共同观看文艺演出。</div>
+    <button class="btn">文字右移</button>
+    <div class="right"></div>
+  </div>
+  <script>
+    const btn = document.querySelector('.btn');
+    const left = document.querySelector('.left');
+    const right = document.querySelector('.right');
+    
+    btn.onclick = function (){
+      let leftVal = left.innerHTML
+      left.innerHTML = leftVal.substr(1)
+      right.innerHTML += leftVal.substr(0, 1);
+    }
+    
+  </script>
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style>
+	*{
+	    margin: 0;
+	    padding: 0;
+	    list-style:none;
+	    text-decoration: none;
+	}
+	
+	#bbox{
+		margin: 100px auto;
+		width: 447px;
+		height: 245px;
+		border: 3px solid #AADFEA;
+		position: relative;
+	}
+	#box{
+		position: absolute;
+	}
+	img{
+		position: absolute;
+	}
+	a{
+		position: absolute;
+		top: 115px;
+		color: #FFFFFF;
+		z-index: 5;
+	}
+	a:nth-of-type(1){
+		left: 0;
+	}
+	a:nth-of-type(2){
+		right: 0;
+	}
+</style>
+</head>
+<body>
+    <div id="bbox">
+    	<div id="box">
+    		<img src="img/1.jpg"/>
+    		<img src="img/2.jpg"/>
+    		<img src="img/3.jpg"/>
+    		<img src="img/4.jpg"/>
+    	</div>
+        <a id="s" href="javascript:;">上一个</a>
+    	<a id="x" href="javascript:;">下一个</a>
+    </div>
+    
+<script type="text/javascript">
+	const box = document.getElementById('box');
+	const s = document.getElementById('s');
+	const x = document.getElementById('x');
+	const imgs = box.children;
+	let tu = 0;
+	let xt = 1;//下一张图
+	let st = 3;//上一张图
+	imgs[tu].style.zIndex = 3
+	
+	console.log(imgs[tu]);
+	
+	kg = false;
+	
+	x.onclick = function (){
+		xzt('X',450);
+	}
+	s.onclick = function(){
+		szt('X',450);
+	}
+	document.onmousedown = function(ev){
+		let oldx = ev.pageX;
+		let oldy = ev.pageY;
+		document.onmousemove = function(ev){
+			if(ev.pageX-oldx>80){
+				xzt('X',450);
+				
+				console.log(ev.pageX-oldx)
+			}
+			if(ev.pageX-oldx<-80){
+				szt('X',450);
+			}
+			if(ev.pageY-oldy>50){
+				xzt('Y',248);
+			}
+			if(ev.pageY-oldy<-50){
+				szt('Y',248);
+			}
+			return false;
+		}
+		document.onmouseup = function(){
+			document.onmousemove = null;
+		}
+	}
+	document.onkeyup = function (ev){
+		switch(ev.keyCode){
+			case 37:
+               szt('X',450);
+            break;
+            case 38:
+                szt('Y',248);
+            break;
+            case 39:
+                xzt('X',450);
+            break;
+            case 40:
+                xzt('Y',248);
+            break;
+		}
+	}
+	function xzt(fx,sz){
+		if(kg) return;
+		kg = true;
+		imgs[xt].style.zIndex = 2;
+		imgs[tu].style.transition = '1s';
+		imgs[tu].style.transform = `translate${fx}(${sz}px)`;	
+		setTimeout(function(){
+			kg = false;
+			console.log(kg)
+			for(let i=0;i<imgs.length;i++){
+				if(i!=(xt)){
+					imgs[i].style.zIndex = 1;
+					//console.log(xt)
+				}
+			}
+			imgs[tu].style.transition = '0s';
+			imgs[tu].style.transform = `translate${fx}(0px)`;
+			st = tu;
+			tu = xt;
+
+			imgs[tu].style.zIndex = 3;
+			xt++;
+			if(xt>3) xt =0;
+		},1016);
+	}
+	function szt(fx,sz){
+		if(kg) return;
+		kg = true;
+		imgs[st].style.zIndex = 2;
+		imgs[tu].style.transition = '1s';
+		imgs[tu].style.transform = `translate${fx}(-${sz}px)`	;	
+		setTimeout(function(){
+			kg = false;
+			for(let i=0;i<imgs.length;i++){
+				if(i!=(st)){
+					imgs[i].style.zIndex = 1;
+				}
+			}
+			imgs[tu].style.transition = '0s';
+			imgs[tu].style.transform = `translate${fx}(0px)`;
+			xt = tu;
+			tu = st;			
+			imgs[tu].style.zIndex = 3;
+			st--;
+			if(st<0) st =3;
+		},1016);
+	}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+	#box{
+		width: 0px;
+		height: 0px;
+		border: 1px dashed #000000;
+		background-color: rgba(0,0,0,0.2);
+		position: absolute;
+	}
+	</style>
+	<body id="body">
+		
+		<script type="text/javascript">
+			document.onmousedown=function(ev){
+				let oBox=document.createElement("div");										
+				let disx=ev.pageX;
+				let disy=ev.pageY;				
+				oBox.style.left=disx+"px";
+				oBox.style.top=disy+"px";				
+				oBox.id="box";
+				body.appendChild(oBox);				
+				document.onmousemove=function(ev){					
+					//求出拖拽的最小值
+					let l=Math.min(disx,ev.pageX);
+					let t=Math.min(disy,ev.pageY);										
+					oBox.style.left=l+"px";
+					oBox.style.top=t+"px";										
+					oBox.style.width=Math.abs(ev.pageX-disx)+"px";
+					oBox.style.height=Math.abs(ev.pageY-disy)+"px";
+				}				
+				document.onmouseup=function(){
+					document.onmousemove=document.onmouseup=null;					
+					oBox.remove();
+				}								
+			}					
+		</script>
+		
+	</body>
+</html>

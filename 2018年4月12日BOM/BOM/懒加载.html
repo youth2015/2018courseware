@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    *{
+        margin:0;
+        padding:0;
+        list-style:none;
+    }
+    .box{
+        width:980px;
+        margin:0 auto;
+    }
+    .box ul li{
+        float:left;
+        width: 490px;
+        height: 500px;
+    }
+    .box ul li img{
+    	width:490px;
+    	height: 500px;
+    	vertical-align: top;
+    	opacity: 0;
+    	transition:1.2;
+    }
+
+</style>
+<body>
+    <div class="box">
+        <ul id="ulx">
+           <!-- <li><img src="img/01.JPG"/></li>-->
+            <!--<li><img src="img/02.JPG"/></li>-->
+            <!--<li><img src="img/03.JPG"/></li>-->
+        </ul>
+    </div>
+    <script>
+        let html="";
+        const oUlx=document.querySelector("#ulx");
+        //const oLi=document.querySelector("li");
+      for(let i=0;i<100;i++){
+      		html+=`<li><img index="img/${"0"+i%3}.JPG"/></li>`;	
+	    }    
+       oUlx.innerHTML = html;
+       
+      const aLi=document.querySelectorAll("li");
+      const oImg=document.querySelectorAll("img");
+      
+      let iH=window.innerHeight;
+      
+      window.onscroll=function(){
+      	for(let i=0;i<aLi.length;i++){
+      		if(aLi[i].getBoundingClientRect().top<=iH){
+      			
+      			if(oImg[i].getAttribute('index')){ //获取每张图片的属性值为index;
+      				
+      				oImg[i].setAttribute("src",oImg[i].getAttribute('index'));//设置每张图片的属性值
+      				oImg[i].removeAttribute("index");
+      				
+      				console.log("index")
+      				oImg[i].style.opacity=1;
+      			}
+      		}
+      	}
+      }
+      
+      
+    </script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        let num=10;
+        function fn(num) {
+            if (num<0) return 0
+            setTimeout(function(){
+                console.log(num);
+                fn(--num);
+            },0)
+        }
+        fn(num)
+    </script>
+</body>
+</html>

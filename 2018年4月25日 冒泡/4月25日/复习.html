@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		#box{
+			width: 100px;
+			height: 100px;
+			background: #FF0000;
+			position: absolute;
+			top:0;
+			left: 0;
+		}
+	</style>
+	<body>
+		<div id="box"></div>
+		<script>
+			const obox=document.getElementById("box");
+			
+			document.onmouseover=function(ev){
+				
+				obox.style.left=ev.clientX-obox.offsetWidth/2+"px";
+				obox.style.top=ev.clientY-obox.offsetHeight/2+"px";
+				
+			}
+		</script>
+	</body>
+</html>

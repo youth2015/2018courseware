@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title></title>
+  <style>
+    ul {
+      width: 300px;
+      height: 400px;
+      border: 1px solid #000;
+    }
+  </style>
+</head>
+<body>
+  <ul class="leaveMessage"></ul>
+  <input type="text" class="text" value="">
+  <input type="button" class="btn" value="发送">
+  <script>
+    /**
+     * 1 点击按钮获取到文本框的内容
+     * 2 把这个获取到的value 变成  <li>value</li>
+     * 3 把获取到的这个值放到ul当中，也就是操作ul的innerHTML
+     */
+    
+    var msg = document.querySelector('.leaveMessage');
+    var text = document.querySelector('.text');
+    var btn = document.querySelector('.btn');
+    
+    text.focus();
+    
+    btn.onclick = function (){
+      // 带确定的弹窗
+      // alert(text.value)
+      
+      var val = `<li>${text.value}</li>`;
+      
+      console.log(msg.innerHTML);
+      
+      // msg.innerHTML = msg.innerHTML + val;
+      // msg.innerHTML += val;
+      
+      msg.innerHTML = val + msg.innerHTML;
+      
+      console.log(msg.innerHTML);
+      
+      text.focus();
+      text.value = '';
+    }
+    
+  
+  </script>
+</body>
+</html>

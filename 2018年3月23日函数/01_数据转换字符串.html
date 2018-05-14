@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta id="meta" charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title></title>
+</head>
+<body>
+  <div class="box"></div>
+  <script>
+    /**
+     * 字符串：由0个或者多个字符组成的集合，并且放到一对单引号或者双引号或者反引号中。
+     *
+     * 属性：length 代表字符串的长度。length属性只可以读取，不可以修改。
+     *
+     * 字符串一但创建不可以再修改
+     *
+     * 将其他数据类型转换成字符串的方法：
+     *  - String(要转换的数据)
+     *  - 要转换的数据.toString() 
+     *    > undefined 和 null 不能使用这个方法
+     */
+    
+    // 数字转字符串
+    // console.log(String(12.5));   // "12.5"
+    // console.log(String(NaN));  // "NaN"
+    // console.log(12.5.toString()); // "12.5"
+    // console.log((10).toString()); // "10"
+    // console.log(10..toString()); // "10"
+    
+    // undefined
+    // console.log(String(undefined));  // "undefined"
+    
+    // null
+    // console.log(String(null));  //"null"
+    
+    // 对象转字符串
+    var obj1 = {};
+    var obj2 = {a: 1}
+    
+    // console.log(String(obj1));   // "[object Object]"
+    // console.log(obj2.toString()); // "[object Object]"
+    
+    // var arr1 = []   // ""
+    // var arr2 = [1, 'a']   // "1,a"
+    
+    // var fn = function (){}  // "function (){}"
+    
+    // --------------------------------------------------
+    // console.log(1 + '');
+    
+    //上面是一个隐式类型转换的例子，当 1 + '' 的时候，
+   //解析器发现需要做的 加法运算  有一个 是字符串，
+    //那么会认为不再是运算，而是字符串拼接操作，但是 1 不是字符串，
+   // 所以会尝试着将 1 转为字符串，变为 '1'，之后再做字符串拼接操作
+    
+    // var obj = {
+    //   a: 1,
+    //   toString() {
+    //     console.log('x');
+    //   }
+    // }
+    // 
+    // console.log('' + obj);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  </script>
+</body>
+</html>

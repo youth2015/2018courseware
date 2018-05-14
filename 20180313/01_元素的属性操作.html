@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title></title>
+</head>
+<body>
+  <input type="text" value="123" class="text">
+  <script>
+    /**
+     * 元素对象的属性操作是指操作元素的行间属性
+     * 
+     * 元素对象的属性操作主要包括2个部分：
+     *    - 属性的读操作：
+     *      元素.属性的名字, 还可以使用 元素['属性的名字']，能用 "." 的地方都能用 '[]',能用 '[]'的地方不一定都能用 '.'
+     *      
+     *    - 属性的写操作：
+     *      元素.属性的名字 = 新的值
+     *      元素['属性的名字'] = 新的值
+     */
+    
+    var text = document.querySelector('.text');
+    
+    // console.log(text.value);
+    // console.log(text['value']);
+    
+    document.onclick = function (){
+      text.value = '456'
+    }
+    
+  </script>
+</body>
+</html>

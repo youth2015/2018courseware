@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title></title>
+</head>
+<body>
+  <script>
+    // var data = {
+    //   a: 1,
+    //   b: 2, 
+    //   arr: [1, 2, 3]
+    // }
+    
+    // var copyData = {...data}
+    
+    // copyData.a = 10
+    // 
+    // console.log(data);
+    // console.log(copyData);
+    
+    // 以上过程就称为浅拷贝
+    
+    // 问题：
+    // copyData.arr[0] = 'ok'
+    
+    // console.log(copyData);
+    // console.log(data);
+    
+    var arr = [1, 2, 3, ['a', 'b']]
+    var data = []
+    
+    // for (var i=0; i<arr.length; i++) {
+    //   data[i] = arr[i]
+    // }
+    // 
+    // data[0] = 10
+    // data[3][0] = 'ok'
+    // 
+    // console.log(data);
+    // console.log(arr);
+    
+    for (var i=0; i<arr.length; i++) {
+      if (Array.isArray(arr[i])) {
+        data[i] = [...arr[i]]
+        continue
+      }
+      data[i] = arr[i]
+    }
+    
+    console.log(data);
+    
+    data[3][0] = 'ok'
+    
+    console.log(arr);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  </script>
+</body>
+</html>

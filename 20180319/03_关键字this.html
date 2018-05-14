@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title></title>
+  <style>
+    .btns {
+      width: 400px;
+      height: 100px;
+      border: 2px solid #000;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+    .btn-item {
+      width: 50px;
+      height: 50px;
+      border: 2px solid #000;
+    }
+  </style>
+</head>
+<body>
+  <div class="btns">
+    <span class="btn-item">1</span>
+    <span class="btn-item">2</span>
+    <span class="btn-item">3</span>
+    <span class="btn-item">4</span>
+    <span class="btn-item">5</span>
+  </div>
+  <script>
+    // 获取一组span
+    var items = document.querySelectorAll('.btn-item');
+    
+    /**
+     *  this: 是JS的一个关键字，是预先定义好的这个变量，这个变量里的
+     *        值是不固定的，会随着执行环境（上下文）的改变而变化
+     *
+     * 1 this 在函数外也就是 全局 下，代表window
+     *   
+     * 2 在函数内，this不一定是什么。
+     *    - 元素对象.事件 = 事件处理函数。 那么 事件处理函数 里的 this 就是
+     *      触发这个事件的 那个 元素对象
+     *      
+     * 3 对象.函数()  那么这个函数内部的this就是这个对象
+     */
+    
+    // -------------------------------------------------------------
+    
+    // console.log(this);  // window 
+    
+    // window 是 js 的核心对象，凡是声明的变量，或者函数等等，最终都会称为window的属性
+    
+    var a = 10;
+    
+    // console.log(window.a);
+    
+    // window.onclick = function (){
+    //   console.log('window');
+    // }
+    
+    // console.log(this.a);
+    // console.log(this === window);
+    
+    // 上面的这个环境，叫做全局环境，this 在全局环境下指向 window
+    
+    // ------------------------------------------------------
+    // 局部环境: 凡是在代码块内的环境都称为 局部环境
+    // 代码块: 凡是用 {} 包起来的部分都成为代码块
+    
+    // if () {
+    // 
+    // }
+    // 
+    // for () {
+    // 
+    // }
+    // 
+    // function fn(){
+    // 
+    // }
+    
+    // document.onclick = function (){
+    //   console.log(this);
+    // }
+    
+    // --------------------------------------------------
+    
+    var obj = {
+      a: 1,
+      fn () {
+        console.log(this.a);
+      }
+    }
+    
+    obj.fn()
+    
+    var f = obj.fn
+    
+    // window.f = obj.fn
+    
+    f()
+    
+    
+    // document.onclick = function (){
+    //   fn()
+    // }
+    // 
+    // function fn() {
+    //   console.log(this);
+    // }
+    
+    // window.fn()
+    
+    
+    // -----------------------------------------------------
+    
+    // for (var i=0; i<items.length; i++) {
+    //   items[i].onclick = function (){
+    //     console.log(this.innerHTML);
+    //   }
+    // }
+    
+    
+    
+    
+  </script>
+</body>
+</html>

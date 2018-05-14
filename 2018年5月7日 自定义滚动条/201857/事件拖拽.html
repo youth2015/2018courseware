@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		#box{
+			width: 100px;
+			height: 100px;
+			background: red;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+	</style>
+	<body>
+		<div id="box"></div>
+		
+		<script>
+			function Drag(id){
+				let Box=document.querySelector(id);
+				//首先是绑定事件的监听
+				 Box.addEventListener('mousedown',function(ev){
+
+					let disX=ev.pageX-this.offsetLeft;
+					let disY=ev.pageY-this.offsetTop;
+					
+					document.addEventListener("mousemove",move);
+					document.addEventListener("mouseup",up);
+					
+					function move(ev){
+						
+						Box.style.left=ev.pageX-disX+"px";
+						Box.style.top=ev.pageY-disY+"px";	
+						
+
+					}
+					//这里完事后，删除事件监听
+					function up(){
+						document.removeEventListener("mousemove",move);
+						document.removeEventListener("mouseup",up);
+					}
+					ev.preventDefault() //阻止默认行为
+				});
+								
+			}			
+			Drag("#box");
+		</script>		
+	</body>
+</html>

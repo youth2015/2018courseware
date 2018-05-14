@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/play.css"/>
+	</head>
+	<body>
+		<div class="box">
+			<div class="playBox">
+				<div class="yuan score">
+					<span class="num">0分</span>
+					<span>得分</span>
+				</div>
+				<div class="yuan points">
+					<span class="num">0分</span>
+					<span>失分</span>
+				</div>
+				<input type="button" name="" id="" value="开始游戏" class="start"/>
+				<div class="playScreen">
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		const playBox = document.querySelector('.playBox')
+		const start = document.querySelector('.start');
+		const score = document.querySelector('.score');
+		const points = document.querySelector('.points');
+		const playScreen = document.querySelector('.playScreen');
+		const scoreNum = document.querySelector('.score .num');
+		const pointsNum = document.querySelector('.points .num')
+		let playScreen_P = playScreen.innerHTML;
+		let timer_appear = null;
+		let timer_move = null;
+		let Devil_top = 0;
+		let timer_Shake = null;
+		let arr = [10,-10,8,-8,6,-6,4,-4,2,-2,0];
+		let scoreFraction = 0;
+		let pointsFraction = 0;
+		start.onclick = function (){
+			score.classList.add('startAfterYuan');
+			points.classList.add('startAfterYuan');
+			start.classList.add('startAfter');
+			Appear();
+		}
+		/*抖函数-------------------------------------------------------*/
+		function dou(obj,attr,n=10,callback){
+	        let timer = null;
+	        let num = 0;
+	        let px = parseFloat(getComputedStyle(obj)[attr]);
+	        //创建数据
+	        let arr = [];
+	        for(let i=n;i >=2 ;i-=2){
+	            arr.push(i,-i);
+	        }
+	        arr.push(0);
+	        //真正的抖
+	        timer = setInterval(function(){
+	            obj.style[attr] = px + arr[num] + 'px';
+	            num ++;
+	            if(num > arr.length){
+	                clearTimeout(timer);
+	                num = 0;
+	                callback && callback();
+	            }
+	        },30);
+	    } 
+		/*随机生成小恶魔--------------------------------------------------------------------*/
+		function produce(){			
+			playScreen_P = `<div style="left:${Math.round(Math.random()*730)}px;" class="Devil Devil_${Math.ceil(Math.random()*3)||1}"></div>`;
+			playScreen.innerHTML = playScreen_P;
+			const Devil = document.querySelector('.Devil');
+			/*小恶魔移动-------------------------------------------------------------------*/
+			function move(){
+				Devil.style.top = `${Devil_top+=2}px`
+				/*恶魔成功逃脱---------------------------------------------------------------------*/
+				if(parseInt(Devil.style.top)>= 500){
+					pointsFraction++
+					clearInterval(timer_move);
+					Devil_top = 0;					
+					playScreen_P = '';
+					playScreen.innerHTML = playScreen_P;
+					Appear();
+					dou(playBox,'top',15);
+				}
+			}
+			timer_move = setInterval(move,20);
+			/*小恶魔消失--------------------------------------------------------------------*/
+			Devil.ondblclick = function (){
+				Devil.classList.add('Devil_die')
+				dou(Devil,'left');
+				clearInterval(timer_move);
+				scoreFraction++;
+				setTimeout(function(){
+		            Devil_top = 0;					
+					playScreen_P = '';
+					playScreen.innerHTML = playScreen_P;	
+					Appear();
+		        },400);				
+			}
+			clearInterval(timer_appear);
+			/*消灭恶魔的分数------------------------------------------------------------------*/
+			scoreNum.innerHTML = `${scoreFraction}分`
+			pointsNum.innerHTML = `${pointsFraction}分`
+			/*结束游戏 从新加载界面-----------------------------------------------------------*/
+			if(pointsFraction>1){
+				location.reload();
+			}
+		}
+		/*出现小恶魔-----------------------------------------------------------------------*/
+		function Appear(){
+			timer_appear = setInterval(produce,1000);
+		}	
+			
+	</script>
+</html>

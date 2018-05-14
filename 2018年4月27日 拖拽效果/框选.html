@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box{
+				width: 0px;
+				height: 0px;
+				border: 1px dashed #000000;
+				background-color: rgba(0,0,0,0.2);
+				position: absolute;
+			}
+		</style>
+	</head>
+	<body id="body">
+		
+	</body>
+	<script type="text/javascript">
+			document.onmousedown = function (ev){
+				if(ev.button===0){
+					let div = document.createElement('div');
+					div.id = 'box';
+					body.appendChild(div)
+					let oldX = ev.pageX;
+					let oldY = ev.pageY;
+					box.style.left = ev.pageX +'px';
+					box.style.top = ev.pageY +'px';
+					let left = parseFloat(box.style.left);
+					let top = parseFloat(box.style.top);
+					document.onmousemove = function (ev){
+						box.style.width =Math.abs(ev.pageX-oldX) + 'px';	
+						box.style.height =Math.abs(ev.pageY-oldY) + 'px';
+						if(ev.pageX-oldX<0){
+							box.style.left = (ev.pageX-oldX+left) + 'px';
+						}
+						if(ev.pageY-oldY<0){
+							box.style.top = (ev.pageY-oldY+top) + 'px';				
+						}
+					}
+					document.onmouseup = function (ev){
+						document.onmousemove = null;
+						box.style.width = 0;
+						box.style.height = 0;
+						box.remove();
+					}
+				}	
+			}
+		</script>
+</html>

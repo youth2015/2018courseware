@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    #box{
+        width: 100px;
+        height: 100px;
+        background: red;
+        position: absolute;
+    }
+</style>
+
+<body>
+<div id="box"></div>
+    <!--速度版运动-->
+    <script>
+        let speed=10;
+        let timer=null;
+        const oBox=document.getElementById("box");
+        document.onclick=function(){
+            timer=setInterval(function(){
+                speed+=10;
+                if(speed>=600){
+                    clearInterval(timer)
+                }
+                oBox.style.left=speed+"px";
+            },16.7)
+        }
+    </script>
+</body>
+</html>

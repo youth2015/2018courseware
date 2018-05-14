@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title></title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+    
+    .container {
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+    
+    .sliders {
+      position: relative;
+      width: 100%;
+      height: calc(100% - 18px);
+    }
+    
+    .sliders .slider-item {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      transition: 0.5s linear;
+      opacity: 0;
+    }
+    
+    .sliders .slider-item.active {
+      opacity: 1;
+    }
+    
+    .nav-btns {
+      height: 18px;
+      display: flex;
+      /* background-color: red; */
+    }
+    
+    .nav-btns .nav-item {
+      display: block;
+      flex: 1;
+      height: 100%;
+      background-color: #ccc;
+      position: relative;
+    }
+    
+    .nav-btns .nav-item + .nav-item {
+      margin-left: 2px;
+    }
+    
+    .nav-btns .nav-item::after {
+      content: "";
+      display: block;
+      width: 0;
+      height: 100%;
+      transition: 200ms;
+      background-color: pink;
+    }
+    
+    .nav-btns .nav-item:hover::after {
+      width: 100%;
+    }
+    
+    .nav-btns .nav-item.active:hover::after {
+      width: 0;
+    }
+    
+    .nav-btns .nav-item.active {
+      background-color: rgb(50, 172, 217);
+    }
+    
+    .container .prev,
+    .container .next {
+      width: 50px;
+      height: 92px;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 0;
+    }
+    
+    .container .prev {
+      left: 0;
+      background: rgba(0, 0, 0, 0.2) url('./img/prev.png') no-repeat center center;
+    }
+    
+    .container .next {
+      background: rgba(0, 0, 0, 0.2) url('./img/next.png') no-repeat center center;
+    }
+    
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="sliders">
+      <div class="slider-item active" style="background-image: url(./img/1.jpg);"></div>
+      <div class="slider-item" style="background-image: url(./img/2.jpg);"></div>
+      <div class="slider-item" style="background-image: url(./img/3.jpg);"></div>
+      <div class="slider-item" style="background-image: url(./img/4.jpg);"></div>
+      <div class="slider-item" style="background-image: url(./img/5.jpg);"></div>
+    </div>
+    
+    <div class="prev"></div>
+    <div class="next"></div>
+    
+    <nav class="nav-btns">
+      <span class="nav-item active"></span>
+      <span class="nav-item"></span>
+      <span class="nav-item"></span>
+      <span class="nav-item"></span>
+      <span class="nav-item"></span>
+    </nav>
+    
+  </div>
+  <script>
+    
+    var sliders = document.querySelectorAll('.sliders div');
+    var btns = document.querySelectorAll('.nav-btns span');
+    var len = sliders.length;
+    
+    // console.log(sliders);
+    
+    for (var i=0; i<len; i++) {
+      btns[i].index = i;
+      btns[i].onmouseover = function (){
+        for (var i=0; i<len; i++) {
+          btns[i].classList.remove('active')
+          sliders[i].classList.remove('active')
+        }
+        sliders[this.index].classList.add('active')
+        this.classList.add('active')
+      }
+    }
+  </script>
+</body>
+</html>

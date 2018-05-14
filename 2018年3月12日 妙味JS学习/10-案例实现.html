@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title></title>
+  <style>
+    #box {
+      width: 300px;
+      height: 300px;
+      background-color: rgb(180, 208, 88);
+      position: absolute;
+      left: 100px;
+      top: 100px;
+    }
+  </style>
+</head>
+<body>
+  <div class="box" id="box"></div>
+  <script>
+    /**
+     * 1 300 * 300 的 菊花黄 div
+     * 2 鼠标点击 div 颜色 变为  pink
+     */
+    
+    // 1 html + css
+    // 2 分析需求
+    //   - 要获取这个 div 对象
+    //   - 给这个对象添加一个点击事件
+    //   - 点击这个对象的时候做一件事
+    //    - 找到这个对象，将他的background-color属性修改成 pink
+    
+    var box = document.getElementById('box');
+    
+    var bg = 'background-color'
+    
+    box.onclick = function (){
+      // JS操作元素样式的时候，操作的都是行间样式
+      // html 当中，所操作的所有的属性，他们的数据类型 都是字符串
+      // box.style.backgroundColor = 'pink';
+      
+      // 上面的 . 的方式操作对象的某个属性 称之为 属性操作
+      // 除了使用 . 的方式，还可以使用 ['属性名']的方式
+      // 凡是能用 . 的地方都能用 ['']，但是反过来不行
+      // box.style['background-color'] = 'pink'
+      
+      box.style[bg] = 'pink';
+    }
+    
+  </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--<div id="box" index="hehe">-->
+        <!--<p>123</p>-->
+        <!--5432-->
+        <!--&lt;!&ndash;{"name":"肾肾"}&ndash;&gt;-->
+        <!--3u892738921-->
+        <!--<span id="span" ></span>-->
+    <!--</div>-->
+
+
+    <ul>
+        <li>
+            <a href="javascript:;">1点击隐藏</a>
+        </li>
+        <li>
+            <a href="javascript:;">2点击隐藏</a>
+        </li>
+        <li>
+            <a href="javascript:;">3点击隐藏</a>
+        </li>
+
+    </ul>
+    <script>
+        // const oBox=document.getElementById("box");
+        //
+        // console.log(oBox.tagName);
+        // console.log(oBox.nodeType);
+        // console.log(oBox.nodeName);
+        // console.log(oBox.childNodes);
+        //
+        // console.log(oBox.index=1);
+
+        const a=Array.from(document.getElementsByTagName("a"));
+        const li=document.getElementsByTagName("li");
+
+        a.forEach((e,i)=>{
+            e.onclick=function(){
+                this.parentNode.style.display="none";
+
+            };
+        });
+
+
+    </script>
+</body>
+</html>

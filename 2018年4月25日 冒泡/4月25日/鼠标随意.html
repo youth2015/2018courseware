@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		#box{
+			width: 100px;
+			height: 100px;
+			background: red;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+	</style>
+	<body>
+		<div id="box">
+			
+		</div>
+		
+		<script type="text/javascript">
+			const oBox=document.getElementById("box");
+			
+			document.onmousemove=function(ev){
+				let x=oBox.pageX;
+				let y=oBox.pageY;
+				
+				oBox.style.left=ev.clientX+"px";
+				oBox.style.top=ev.clientY+"px"
+				
+				
+				
+				
+			}
+		</script>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+

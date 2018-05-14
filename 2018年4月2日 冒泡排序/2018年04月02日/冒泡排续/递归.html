@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+
+        //递归1
+        //        function fn(n) {
+        //            if(n>=0){
+        //                console.log(n--);
+        //                fn(n);
+        //            }
+        //        }
+        //        fn(4);
+
+//        //递归求阶乘
+//        function factorial(n) {
+//            if(n===1) return n;
+//
+//            return n*factorial(n-1)
+//        }
+//        factorial(5);
+//        console.log(factorial(5);
+
+        // 用递归 来求 5 的阶乘
+
+       // n!=n*(n-1)!;
+
+        function  fn2(n) {
+            if (n===1) return n;
+
+            return n*fn2(n-1);
+
+        }
+        console.log(fn2(5));
+    </script>
+</body>
+</html>

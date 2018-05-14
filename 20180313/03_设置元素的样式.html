@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title></title>
+  <style>
+    .box {
+      width: 200px;
+      height: 200px;
+      border: 1px solid red;
+      margin: 30px;
+    }
+  </style>
+</head>
+<body>
+  <input type="text" value="" class="text1">
+  <input type="text" value="" class="text2">
+  <button class="btn">设置</button>
+  <div class="box"></div>
+  <script>
+    /**
+     * 1 点击按钮 拿到两个文本框的内容
+     * 2 将两个文本框的内容设置为box的属性和对应的值
+     */
+    
+    var text1 = document.querySelector('.text1');
+    var text2 = document.querySelector('.text2');
+    var btn = document.querySelector('.btn');
+    var box = document.querySelector('.box');
+    
+    // key ===> 属性
+    // value ===> 值
+    
+    btn.onclick = function (){
+      var key = text1.value
+      var val = text2.value
+      box.style[key] = val
+    }
+    
+    
+  </script>
+</body>
+</html>

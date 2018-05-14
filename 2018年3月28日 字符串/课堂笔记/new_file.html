@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.container{
+				width:800px;
+				height:600px;
+				margin:0 auto;
+			}
+			.left{
+				width: 350px;
+				height: 500px;
+				border:1px solid red;
+				float: left;
+			}
+			
+			button{
+				width: 80px;
+				height: 40px;
+				float: left;
+				margin:0 auto;
+				cursor: pointer;
+			}
+			
+			.right{
+				width: 350px;
+				height: 500px;
+				border:1px solid red;
+				float: left;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="left">说明：教程版权归原作者所有,本站只是负责搜集整理，本站说明：教程版权归原作者所有,本站只是负责搜集整理，本站</div>
+			
+			<button>文字搬运</button>
+			
+			<div class="right">
+				
+			</div>
+		</div>
+		
+		<script type="text/javascript">
+			const oLeft=document.querySelector(".left");
+			const oBt=document.querySelector("button");
+			const oRight=document.querySelector(".right");
+
+			//console.log(oVule)
+			oBt.onclick=function(){
+				setInterval(function(){
+					const oVule=oLeft.innerHTML;
+					oLeft.innerHTML=oVule.substr(1);
+					oRight.innerHTML+=oVule.substr(0,1);
+				},100)
+
+			}
+		</script>
+	</body>
+</html>

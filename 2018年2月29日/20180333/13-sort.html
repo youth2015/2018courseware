@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title></title>
+</head>
+<body>
+  <script>
+    /**
+     * arr.sort([cb])
+     *
+     * sort() 方法在适当的位置对数组的元素进行排序，并返回数组。 sort 排序不一定是稳定的。默认排序顺序是根据字符串Unicode码点。
+     */
+    
+    // var arr = [3, 2, 4, 1, 5, 0]
+    // 
+    // console.log(arr.sort());
+    
+    // 问题？
+    // var arr = [3, 2, 22, 12, 1, 4]
+    // 
+    // console.log(arr.sort());  // [1, 12, 2, 22, 3, 4]
+    // 
+    // '1'.charCodeAt(0)  // 49
+    // '12'.charCodeAt(0)  // 49
+    // 默认按照 unicode 编码排的
+    
+    // var arr = ['c', 'a', 'd', 'e', 'b']
+    // 
+    // console.log(arr.sort());
+    
+    // ----------------------------------------
+    var arr = ['阿毛', '渣渣灰', '马赛克', '板栗']
+    
+    console.log(arr.sort(function (a, b){
+       return a.localeCompare(b, 'zh')
+    }));
+    
+    console.log(arr);
+    
+    // -----------------------------------------
+    // var arr = [3, 2, 22, 12, 1, 4]
+    
+    // const ret = arr.sort(function (a, b) {
+    //   return a - b
+    // })
+    
+    // const ret = arr.sort(function (a, b) {
+    //   return b - a
+    // })
+    
+    // console.log(ret);
+    
+    // const data = [
+    //   {
+    //     id: 1,
+    //     name: 1
+    //   },
+    //   {
+    //     id: 3,
+    //     name: 3
+    //   },
+    //   {
+    //     id: 2,
+    //     name: 2
+    //   }
+    // ]
+    // 
+    // data.sort(function (a, b){
+    //   return a.id - b.id
+    // })
+    // 
+    // console.log(data);
+    
+    // ----------------------------------------
+    // var arr = ['J', '8', 'Q', 'A', '2', '大王']
+    
+    // 随机数 ==> Math.random() ==> 返回 0 -- 1 之间随机的小数
+    
+    // arr.sort(function (){
+    //   return 0.5 - Math.random()
+    // })
+    // 
+    // console.log(arr);
+    
+    
+
+  </script>
+</body>
+</html>

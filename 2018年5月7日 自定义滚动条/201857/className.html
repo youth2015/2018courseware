@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>className获得元素有兼容题</title>
+	</head>
+	
+	<body>
+		<div id="box"></div>
+		<ul id="ul">
+			<li class="li li1">1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+		</ul>
+		<script>
+			function myQuery(){
+				let strOne=arguments[0].charAt(0);
+				let EleName=arguments[0].substring(1);
+				
+				console.log(EleName);
+				
+				
+				let aEle=document.getElementsByTagName('*');
+				let result=[];
+				
+				console.log(aEle);
+				//console.log(strOne)
+				
+				switch(strOne){
+					
+					case '#':
+					return document.getElementById(EleName);
+					break;				
+					case '.':					
+					for (let i=0;i<aEle.length;i++) {
+						
+						let sClass=aEle[i].className.split(' ');
+						
+						console.log(sClass)
+						
+						console.log(sClass);
+						
+						if(sClass){
+							for(let j=0;j<sClass.length;j++){
+								if(sClass[j]==Element){
+									result.push(aEle[i]);
+								}
+							}
+						}
+					}
+					
+					return result;
+					break;
+					
+					default:
+					return document.getElementsByTagName(arguments[0]);
+					break;
+					
+				}
+			}
+			
+			 let li = myQuery('.li');
+			
+			
+			//let li=myQuery("li");
+			
+			for(let i=0;i<li.length;i++){
+				li[i].style.background='red';
+			}
+		</script>
+	</body>
+</html>

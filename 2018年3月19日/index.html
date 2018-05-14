@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<style type="text/css">
+		.box{
+			width:500px;
+			height: 200px;
+			border:1px solid #000;
+		}
+		.box span{
+			width:80px;
+			height: 80px;
+			border:1px solid #000;
+			float: left;
+			margin:8px;
+			display: inline-block;
+		}
+		.active{
+			background:red;
+		}
+	</style>
+	<body>
+		<div class="box">
+			<span class="list-span active">0</span>
+			<span class="list-span">1</span>
+			<span class="list-span">2</span>
+			<span class="list-span">3</span>
+			<span class="list-span">4</span>
+		</div>
+		
+		<script type="text/javascript">
+			
+			var oBox=document.querySelectorAll(".list-span");
+			var oCorle=["red","blue","green"];
+			//console.log(oBox)
+			
+		
+				for(var i=0;len=oBox.length,i<len;i++){
+				oBox[i].index=i;
+				
+				oBox[i].onclick=function(){	
+					
+					this.style.background="red";
+				}
+			}
+		</script>
+	</body>
+</html>

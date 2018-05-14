@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.box{
+				width: 400px;
+				height: 400px;
+				border:1px solid #0000FF;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="text" class="text1" />
+		<input type="text" class="text2" />
+		<input type="button" value="设置" class="btn" />
+		
+		<div class="box"></div>
+		
+		<script type="text/javascript">
+			var oText1=document.querySelector(".text1");
+			var oText2=document.querySelector(".text2");
+			var oBtn=document.querySelector(".btn");
+			var oBox=document.querySelector(".box");	
+
+			oBtn.onclick=function(){
+				var key1=oText1.value;
+				var key2=oText2.value;
+				
+				oBox.style[key1]=key2;
+
+			}
+			
+		</script>
+	</body>
+</html>

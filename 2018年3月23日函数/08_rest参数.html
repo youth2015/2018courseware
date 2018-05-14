@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title></title>
+</head>
+<body>
+  <script>
+    // ...rest 代表扩展运算符的反向操作，表示 rest 参数
+    // function fn(a, b, ...rest) {
+    //   console.log(a, b);
+    //   console.log(rest);
+    //   console.log(Array.isArray(rest));
+    //   return rest
+    // }
+    // 
+    // fn(1, 2, 3, 4, 5)
+    
+    function fn(...rest){
+      console.log(rest.toString());
+    }
+    
+    fn('a', 1, 'x')
+    
+    // 注意  ...rest 参数 只能放在所有形参的最后
+    
+    // function test(a, ...rest, b) {
+    // 
+    // }
+    
+    
+    
+    
+    
+    
+    
+  </script>
+</body>
+</html>

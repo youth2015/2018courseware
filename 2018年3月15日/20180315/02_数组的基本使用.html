@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title></title>
+</head>
+<body>
+  <script>
+    /**
+     * 声明一个数组： [],
+     * 数组里面的每一项用 , 隔开，最后一项后面不能加 ,
+     * 数组里面可以储存任意类型的数据
+     * 想使用数组里面的数据可以通过下标的方式
+     * length 属性 代表数组的长度， 是可读可写的
+     */
+    
+    // var arr = [1, 2, 3, 4, 5];
+    
+    // 数据的 length 属性 可读可写
+    // console.log(arr.length);
+    
+    // console.log(arr);
+    
+    // arr.length = 3;
+    
+    // console.log(arr);
+    
+    // arr.length = 10;
+    // 
+    // console.log(arr);
+    
+    // JS中的数组是可以根据数据的个数动态的改变自身的长度
+    
+    // --------------------------------------
+    // 可以通过 属性 的读取操作 来获取数组中的某个值
+    // 数组中的 key 从开始到结尾 是 从 0 依次向后排列的数字,这些数字 又称为 索引值
+    
+    // console.log(arr['0']);
+    // console.log(arr[0]);
+    
+    // 取到数组里的最后一项 
+    // console.log(arr[arr.length - 1]);
+    
+    // console.log(arr[arr.length]);   //undefined
+    
+    
+    // ------------------------------------------
+    // var arr = [
+    //   '123',
+    //   'abc',
+    //   100,
+    //   function (){},
+    //   [1, 2, 3]
+    // ]
+    
+    // --------------------------------------
+    // var arr = [   // 二维数组
+    //   [1, 2, 3],
+    //   [4, 5, 6],
+    //   [7, 8, 9]
+    // ];
+    // 
+    // console.log(arr[1][1]);
+    
+    // ----------------------------------------------
+    // 数组的解构赋值
+    
+    // var a = 1;
+    // var b = 2;
+    // var c = 3;
+    
+    
+    // var a = 1, b = 2, c = 3;
+    
+    // var arr = [
+    //   [1, 2, 3],
+    //   [4, 5, 6],
+    //   [7, 8, 9]
+    // ];
+    
+    // var [a, b, c] = arr;
+    
+    // console.log(a);
+    // console.log(b);
+    // console.log(c);
+    
+    // -----------------------------------
+    var arr = [1, 2, 3]  
+    arr[0] = 10;   
+    console.log(arr);
+  </script>
+</body>
+</html>

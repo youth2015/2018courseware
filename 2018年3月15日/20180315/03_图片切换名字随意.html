@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title></title>
+  <style>
+    button {
+      width: 100px;
+      height: 40px;
+    }
+    img {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <button class="prev">prev</button>
+  <button class="next">next</button>
+  <p class="info">0/0</p>
+  <img src="" class="img" width="400" />
+  <script>
+    var imgData = [
+      './img2/asd.jpg',
+      './img2/fasd.jpg',
+      './img2/hgj.jpg',
+      './img2/timg.jpg'
+    ];
+    
+    var img = document.querySelector('.img');
+    var next = document.querySelector('.next');
+    var prev = document.querySelector('.prev');
+    var info = document.querySelector('.info');
+    
+    var current = 0;
+    
+    tabImg ();
+    
+    function tabImg () {
+      img.src = imgData[current];
+      info.innerHTML = (current + 1) + '/' + imgData.length;
+    }
+    
+    next.onclick = function (){
+      current ++;
+      if (current > imgData.length - 1) {
+        current = imgData.length - 1;
+      }
+      tabImg ();
+    };
+    
+    prev.onclick = function (){
+      current --;
+      if (current < 0) {
+        current = 0;
+      }
+      tabImg ();
+    }
+    
+  </script>
+</body>
+</html>

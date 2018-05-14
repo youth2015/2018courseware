@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	
+	<body>
+		<input type="text" class="text" />
+		<input type="button" value="按钮" class="btn" />
+		
+		<script type="text/javascript">
+			var txt=document.querySelector('.text');
+			var btn=document.querySelector(".btn");
+			
+			txt.focus();
+			
+			btn.onclick=function(){
+				console.log(txt.value);
+				
+			}
+			
+		</script>
+	</body>
+</html>

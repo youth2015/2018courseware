@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        #box{
+            width:100px;
+            height: 100px;
+            background: red;
+            position: absolute;
+            left:100px;
+            top:0;
+            border-radius: 50%;
+        }
+        #box2{
+            width:100px;
+            height: 100px;
+            background: green;
+            position: absolute;
+            left:100px;
+            top:150px;
+            border-radius: 50%;
+            font-size:12px;
+            line-height: 100px;
+            text-align:center;
+            color:#fff;
+            opacity:.8;
+        }
+    </style>
+</head>
+<body>
+<button id="btn">停止</button>
+<div id="box"></div>
+<div id="box2">呵呵</div>
+<script src="tween.js"></script>
+<script>
+    const oBox=document.getElementById("box");
+    const oBox1=document.getElementById("box2");
+
+    oBox.onclick=function () {
+        Move({
+            el:this,
+            attr:{
+                left:300,
+                opacity:.3
+            },
+            d:500,
+            sportName:"linear",
+            callback:function () {
+                Move({
+                    el:this,
+                    attr:{
+                        left:300,
+                        opacity:1
+                    },
+                    d:500,
+                    sportName:"elasticOut"
+                });
+            }
+        });
+    };
+
+//    function Move(obj,json,d,callback)
+        //t,b,c,d
+     function Move(oPt) {
+//        oPt.attr=oPt.attr||{};
+//        oPt.d=oPt.d||1000;
+//        oPt.el=oPt.el||null;
+//        oPt.sportName=oPt.sportName||"linear";
+//        oPt.callback=callback && typeof callback=="function" && callback();
+        let obj={
+            attr:{},
+            d:1000,
+            el:null,
+            sportName:"linear",
+            callback:function(){}
+         };
+
+         oPt=Object.assign(obj,oPt);
+
+        let oldTime=Date.now();
+
+        let j={};
+
+        for(let i in oPt.attr){
+            let b=parseFloat(getComputedStyle(oPt.el)[i]);
+            j[i]={
+                c:oPt.attr[i]-b,
+                b
+            }
+        }
+
+        ;(function anmiate(){
+
+            oPt.el.timer=requestAnimationFrame(anmiate);
+
+            let t=Date.now()-oldTime;
+
+            if (t>=oPt.d){
+                t=oPt.d;
+
+            }
+            for(let attr in j){
+
+                let v=Tween[oPt.sportName](t,j[attr].b,j[attr].c,oPt.d);
+
+                if(attr=="opacity"){
+                    oPt.el.style[attr]=v;
+                }else {
+                    oPt.el.style[attr]=v+"px";
+                }
+            }
+
+           if (t==oPt.d){
+               cancelAnimationFrame( oPt.el.timer);
+               oPt.callback.call(oPt.el);
+           }
+        })()
+
+
+    }
+</script>
+</body>
+</html>

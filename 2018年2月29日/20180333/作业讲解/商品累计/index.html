@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			body,
+			ul,
+			li {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+		</style>
+		<link rel="stylesheet" type="text/css" href="price.css" />
+	</head>
+
+	<body onselectstart="return false;">
+		<div class="wrap">
+			<div class="box">
+				<ul class="list">
+					<!-- <li>
+						<i></i>
+						<em>0</em>
+						<i></i>
+						<span>
+							单价：<strong>12.5元 </strong> 小计：<strong>0元</strong>
+						</span>
+					</li> -->
+				</ul>
+				<div class="info">
+					<span>商品公合计：<em>0</em>件</span>
+					<span>共花费了：<em>0</em>元</span>
+					<br />
+					<br />
+					<span>其中最贵的商品单价是：<em>0</em>元</span>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script>
+		const data = [
+			{
+				id: 0,
+				num: 0,
+				price: 12.5,
+				total: 0
+			},
+			{
+				id: 1,
+				num: 0,
+				price: 10.5,
+				total: 0
+			},
+			{
+				id: 2,
+				num: 0,
+				price: 8.5,
+				total: 0
+			},
+			{
+				id: 3,
+				num: 0,
+				price: 8,
+				total: 0
+			},
+			{
+				id: 4,
+				num: 0,
+				price: 14.5,
+				total: 0
+			}
+		]
+		
+		// 根据数据生成结构
+		function createGoodsListHtml (data) {
+			const list = document.querySelector('.list');
+			
+			let html = '', len = data.length;
+			
+			for (let i=0; i<len; ++i) {
+				html += `<li>
+										<i class="sum"></i>
+										<em class="num">${data[i].num}</em>
+										<i class="add"></i>
+										<span>
+											单价：<strong class="price">${data[i].price}</strong> 小计：<strong class="total">${data[i].total}</strong>
+										</span>
+									</li>`
+			}
+			
+			list.innerHTML = html
+		}
+		
+		createGoodsListHtml(data);
+		
+		// 生成结构之后，获取所有的li节点
+		const listItems = document.querySelectorAll('.list li');
+		
+		[...listItems].forEach(computedGoods);
+		
+		// 计算某一行商品的信息，参数是对应的某个 li
+		function computedGoods (listItem, i) {
+			const sum = listItem.querySelector('.sum')  // -
+			const add = listItem.querySelector('.add')  // +
+			const numInfo = listItem.querySelector('.num')  // 个数
+			const total = listItem.querySelector('.total') // 小计
+			
+			sum.onclick = function (){
+				numInfo.innerHTML = data[i].num > 0 ? --data[i].num : 0
+				total.innerHTML = data[i].total = data[i].num * data[i].price
+				
+				// 执行统计方法
+				computedAllData()
+			};
+			
+			add.onclick = function (){
+				numInfo.innerHTML = ++data[i].num
+				total.innerHTML = data[i].total = data[i].num * data[i].price
+				
+				// 执行统计方法
+				computedAllData()
+			};
+		}
+		
+		function computedAllData () {
+			const infos = document.querySelectorAll('.info em');
+			let [x, y, z] = [0, 0, 0], len = data.length
+			
+			for (let i=0; i<len; i++) {
+				x += data[i].num
+				y += data[i].total
+				if (data[i].num && z < data[i].price) {
+					z = data[i].price
+				}
+			}
+			
+			infos[0].innerHTML = x;
+			infos[1].innerHTML = y;
+			infos[2].innerHTML = z;
+		}
+		
+		
+	</script>
+</html>

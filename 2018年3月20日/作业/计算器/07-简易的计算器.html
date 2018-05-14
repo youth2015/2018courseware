@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title></title>
+</head>
+<body>
+  <input type="text" value="" class="txt1">
+  <select class="select">
+    <option value="+" >+</option>
+    <option value="-" >-</option>
+    <option value="*" >*</option>
+    <option value="/" >/</option>
+    <option value="%" >%</option>
+  </select>
+	  <input type="text" class="txt2">
+	  <input type="button" value="=" class="btn" onclick="compute()">
+	  <input type="text" id="result">	 
+	  
+  <script type="text/javascript"> 	
+  	function compute(){
+	  	var oStr1=Number(document.querySelector(".txt1").value);
+	  	var oStr2=Number(document.querySelector(".txt2").value);
+	  	var oStr3=document.querySelector(".select").value;
+	 
+	  	var oBtn=document.querySelector(".btn");  	
+	  	var result; 
+	  		switch(oStr3){
+		  			case "+":
+			  			oStr3=oStr1+oStr2;
+			  			break;
+		  			case "-":
+			  			oStr3=oStr1-oStr2;
+			  			break;
+		  			case "*":
+			  			oStr3=oStr1*oStr2;
+			  			break;
+			  		case "/":
+			  			if(oStr2==0){
+			  				alert("除数不能为0")
+			  			}else{
+			  				oStr3=oStr1/oStr2;
+			  			}		
+			  			break;	
+			  		case "%":
+			  			oStr3=oStr1%oStr2
+			  			break;
+	  			} 		  			
+	  		 document.getElementById("result").value=oStr3; 
+			} 	
+  </script>
+</body>
+</html>

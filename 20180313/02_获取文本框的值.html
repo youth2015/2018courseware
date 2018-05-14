@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title></title>
+</head>
+<body>
+  <!-- 虽然没有value属性，但是默认还是有值的，这个值是一个 '' -->
+  <input type="text" class="text">
+  <input type="button" value="按钮" class="btn">
+  <script>
+    /**
+     * 1 让文本框自动聚焦
+     * 2 点击按钮，首先获取到文本框的值
+     * 3 弹出（打印）获取到的值
+     * 4 清空文本框，并且让文本框重新聚焦
+     */
+    var text = document.querySelector('.text');
+    var btn = document.querySelector('.btn');
+    
+    text.focus();
+    
+    btn.onclick = function (){
+      console.log(text.value);
+      text.value = '';
+      text.focus();
+    }
+    
+  </script>
+</body>
+</html>

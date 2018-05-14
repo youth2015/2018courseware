@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    #box{
+        width:100px;
+        height: 100px;
+        background: red;
+        position: absolute;
+        left:0;
+        top:0;
+    }
+</style>
+<body>
+    <div id="box"></div>
+    <script>
+        const  oBox=document.querySelector("#box");
+        let time;
+        let num=0;
+
+        document.onclick=function(){
+            let oldTime=Date.now();
+            (function move(){
+                if (time===null) return;
+                timer=requestAnimationFrame(move);
+                if(num>=600){
+                    cancelAnimationFrame(timer);
+                    time=null;
+                }else {
+                    let now=Date.now()-oldTime;
+
+                    oldTime=Date.now();
+                    num+=10;
+                    oBox.style.left=num+"px";
+                }
+            })()
+        }
+
+    </script>
+</body>
+</html>

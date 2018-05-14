@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title></title>
+  <style>
+    .btns {
+      width: 400px;
+      height: 100px;
+      border: 2px solid #000;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+    .btn-item {
+      width: 50px;
+      height: 50px;
+      border: 2px solid #000;
+    }
+  </style>
+</head>
+<body>
+  <div class="btns">
+    <span class="btn-item">1</span>
+    <span class="btn-item">2</span>
+    <span class="btn-item">3</span>
+    <span class="btn-item">4</span>
+    <span class="btn-item">5</span>
+  </div>
+  <script>
+    var btns = document.querySelectorAll('.btns .btn-item');
+    
+    // btns[0].style.backgroundColor = 'pink'
+    // btns[1].style.backgroundColor = 'pink'
+    // btns[2].style.backgroundColor = 'pink'
+    // btns[3].style.backgroundColor = 'pink'
+    // btns[4].style.backgroundColor = 'pink'
+    
+    // for (var i=0; i<btns.length; i++) {
+    //   btns[i].style.backgroundColor = 'pink'
+    // }
+    
+    // for (var i=0,len=btns.length; i<len; i++) {
+    //   btns[i].style.backgroundColor = 'pink'
+    // }
+    
+    
+    // 给这一组元素的每一个添加一个点击事件，点击其中的任意一个span都可以
+    // 向控制台打印 它 的  innerHTML
+    
+    
+    // btns[0].onclick = function (){
+    //   console.log(btns[0].innerHTML);
+    // }
+    // 
+    // btns[1].onclick = function (){
+    //   console.log(btns[1].innerHTML);
+    // }
+    
+    // 下面这种写法是错误的
+    // for (var i=0; i<btns.length; i++) {
+    //   btns[i].onclick = function (){
+    //     console.log(btns[i].innerHTML);
+    //   }
+    // }
+    
+    for (var i=0; i<btns.length; i++) {
+      // console.log(i);
+      // fn()
+      
+      
+      document.onclick = function (){
+        // 不能在这里只用每次循环的 i
+        fn();
+      }
+    }
+    
+    console.log(123);
+    
+    // console.log(i);
+    
+    function fn(){
+      console.log(i);
+    }
+    
+    // document.onclick = function (){
+    //   fn();
+    // }
+    
+    
+    
+    
+    
+    
+  </script>
+</body>
+</html>

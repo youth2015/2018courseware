@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title></title>
+</head>
+<body>
+  <script>
+    /**
+     * 循环：用来帮你做重复的事（有规律的事、差不多的事）
+     * 关键字 for(初始化的条件 var i=0; 判断条件 i<5; 条件变换 i++){
+     *  如果条件成立，那么就执行这里面的代码（循环体）
+     * }
+     * 两个 ;; 比不可少
+     */
+    
+    /**
+     * 1 执行初始化条件 （只执行一次）
+     * 2 看判断条件是否成立，如果成立，那么执行循环体的代码，如果不成立就跳出循环
+     * 3 如果第二步的条件成立了，执行完循环体的代码之后，执行条件变换
+     * 4 重复 2 3 步
+     */
+    
+    // console.log(1);
+    
+    // for (var i=0; i<3; ++i) {
+    //   // 循环体
+    //   console.log('abc');
+    // }
+    // 
+    // console.log(i);
+    
+    // console.log(2);
+    
+    
+    // for (var a=1, b=2; a<5, b<4; a++, b++) {
+    //   console.log('hello');
+    // }
+    // 
+    // console.log(a + b);
+    
+    // for (var i=0; i<10; i++) {
+    //   if (i%2 === 0) {
+    //     console.log(i)
+    //   }
+    // }
+    
+    
+    // for (var i=0; i<10; i+=2) {
+    //   console.log(i);
+    // }
+    
+    
+    // for (var i=10; i>=0; i-=2) {
+    //   console.log(i);
+    // }
+    
+    
+    // -------------------------------------------
+    
+    // for (var i=0; i<3; i++) {
+    //   console.log(i);
+    //   for (var j=0; j<3; j++) {
+    //     console.log(j);
+    //   }
+    // }
+    
+    // var a = 1;
+    // 
+    // for (var i=0; i<3; i++) {
+    //   for (var j=0; j<=i; j++) {
+    //     a++;
+    //   }
+    // }
+    // 
+    // console.log(a);
+    
+    // -------------------------------------------
+    // arr = [
+    //   [0],
+    //   [0, 1],
+    //   [0, 1, 2]
+    // ]
+    
+    var arr = [];
+    
+    // arr = [
+    //   [0],
+    //   [0, 1],
+    //   [0, 1, 2]
+    // ]
+    
+    for (var i=0; i<3; i++) {
+      arr[i] = []
+      for (var j=0; j<=i; j++) {
+        arr[i][j] = j
+      }
+    }
+    
+    console.log(arr);
+    
+    
+    // 作业1
+    // arr = [
+    //   [0],
+    //   [1, 2],
+    //   [3, 4, 5]
+    // ]
+    
+    
+    
+    
+    
+    
+  
+  </script>
+</body>
+</html>

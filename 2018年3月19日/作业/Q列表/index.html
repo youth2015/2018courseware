@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<style type="text/css">
+		*{
+			margin:0;
+			padding:0;
+			list-style:none;
+		}
+		.Qlist{
+			width: 400px;
+			height: 740px;
+			background: url(img/bg.png) no-repeat;
+			margin:0 auto;
+		}
+		.QlistBg{
+			width: 320px;
+			height:620px;
+			margin:10px;
+			background:url(img/bg1.png) no-repeat;
+			padding:40px 30px;
+		}
+		.listBox{
+			padding:10px 0;
+		}
+		
+		.listBox .sp1{
+			display: block;
+			background:rgba(0,0,0,.7);
+			color: #fff;
+			padding: 10px 0;
+			cursor: pointer;
+			padding:0 10px;
+			font-size: 24px;
+			height: 36px;
+			line-height: 36px;
+			
+		}
+		.listBox .sActive{
+			background: firebrick;
+		}
+		.listBox .sp1 em{
+			width: 0;
+			display: inline-block;
+			margin-right: 10px;
+			border-left: 8px solid #fff;
+			border-top:8px solid transparent;
+			border-bottom:8px solid transparent;
+		}
+		.listBox .sp1 .emActive{
+			width: 0;
+			display: inline-block;
+			margin-right: 10px;
+			border-right:8px solid transparent;
+			border-left: 8px solid transparent;
+			border-top:8px solid #fff;
+		}
+		.Ulist{
+			padding:5px 0;
+			margin:0 5px;
+			display: none;
+		}
+		.current{
+			display: block;
+		}
+		.Ulist li{
+			padding:0 10px;
+			height: 30px;
+			line-height: 30px;
+			text-align: left;
+			cursor: pointer;
+			background: #000;
+			color: #fff;
+			font-size:18px;
+		}
+
+		.Ulist li.aLive{
+			background: blue;
+		}
+		.Ulist li:hover{
+			background: #f8f8f8;
+			color: #000;
+		}
+		
+	</style>
+	<body>
+		<div class="Qlist">
+			<div class="QlistBg">
+				<ul class="list">
+					<li class="listBox">
+						<span class="sp1"><em></em>我的好友</span>
+						<ul class="Ulist">
+							<li>张三</li>
+							<li>李四</li>
+							<li>王五</li>
+						</ul>
+					</li>
+					<li class="listBox">
+						<span class="sp1"><em></em>企业好友</span>
+						<ul class="Ulist">
+							<li>马六</li>
+							<li>郑七</li>
+							<li>老陈</li>
+						</ul>
+					</li>
+					<li class="listBox">
+						<span class="sp1"><em></em>黑名单</span>
+						<ul class="Ulist">
+							<li>安倍晋三</li>
+							<li>杜特而特</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+		
+		
+		<script type="text/javascript">
+			var oList=document.querySelector(".list");
+			var oLi=document.querySelectorAll(".list .listBox");
+			
+			var oSpn=document.querySelectorAll(".listBox .sp1");
+
+			var oEm=document.querySelectorAll("em");
+			
+			var oUl=document.querySelectorAll(".listBox .Ulist");
+			
+			var aLi1=document.querySelectorAll(".Ulist li");
+			var len=oSpn.length;
+			var aLi=aLi1.length;
+			
+			
+			var num=0;
+			var num1=0;
+			var num2=0;
+			for(var i=0;i<len;i++){
+				oSpn[i].index=i;
+				oSpn[i].onclick=function(){
+					num = this.index;					
+					if(num1!=this.index){
+						oUl[num1].classList.remove("current");
+						oEm[num1].classList.remove("emActive");
+						oSpn[num1].classList.remove("sActive");
+					}
+					oUl[num].classList.toggle('current');	
+					oEm[num].classList.toggle('emActive');	
+					oSpn[num].classList.add("sActive");
+					num1=this.index;	
+					
+				}
+			
+			}			
+			for(var i=0;i<aLi;i++){
+				aLi1[i].index=i;
+				aLi1[i].onclick=function(){
+					if(num2!=this.index){
+						aLi1[num2].classList.remove("aLive");	
+						
+					}
+					this.classList.add("aLive");
+					//this.classList.remove("aLive");
+					num2=this.index;
+				}
+				
+
+			}
+			
+
+		</script>
+	</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title></title>
+</head>
+<body>
+  <script>
+    /**
+     * 对象类型的数据结构又成为字典类型的数据结果，和数据非常类似，但是不同于数组的是，数组的 key 只能是 从 0 开始的 数字，而对象数据结构的 key 可以是 任意的 字符串
+     *
+     * 定一个对象使用 {}, 对象主要包括 属性 和 方法，每个属性或者方法都由 键值对 （key 和 value） 组成
+     */
+    
+    var obj = {
+      a: 1,
+      b: 2,
+      c: 3
+    }
+    
+    // 找到对象下面所有的 key
+    
+    // var ret = Object.keys(obj)
+    
+    // console.log(ret);   // ["a", "b", "c"]
+    
+    // 找到对象下面所有的 value
+    
+    // var vals = Object.values(obj)
+    
+    // console.log(vals); // [1, 2, 3]
+    
+    // 找到对象所有的键值对
+    
+    // var ret = Object.entries(obj);
+    // 
+    // console.log(ret);
+    
+    
+    // ----------------------------------------
+    // for ... in 循环
+    
+    // 对象的 所有的 key 都是字符串
+    // in 操作符 可以 判断 某个 key 是否存在于 某个对象当中
+    // console.log('a' in obj);   // true
+    // console.log('x' in obj);   // false
+    
+    // for (var i in obj) {
+    //   console.log(i + ':' + obj[i]);
+    // }
+    
+    // var arr = [1, 2, 3]
+    // 
+    // for (var i in arr) {
+    //   console.log(i, arr[i]);
+    // }
+    
+    // ----------------------------------------
+    // delete obj.b   // 删除对象的某个属性
+    // 
+    // console.log(obj);
+    
+    // CURD
+    
+    // 它代表创建（Create）、更新（Update）、读取（Retrieve）和删除（Delete）操作。
+    
+  
+  </script>
+</body>
+</html>

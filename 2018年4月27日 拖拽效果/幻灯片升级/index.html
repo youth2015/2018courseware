@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<style>
+		*{
+			margin:0;
+			padding:0;
+			list-style: none;
+		}
+		#box{
+			width: 640px;
+			height: 480px;
+			margin:0 auto;
+			position: relative;
+		}
+		#boxImg{
+			position: relative;
+			width: 640px;
+			height: 480px;			
+		}
+		#boxImg img{
+			position: absolute;
+		}
+		#box a{
+			width:100px;
+			height:50px;
+			line-height: 50px;
+			text-align: center;
+			position: absolute;
+			top:240px;	
+			color: #FFFF;
+			background: rgba(0,0,0,.5);	
+			display: block;
+			text-decoration: none;
+			z-index: 4;
+		}
+		#pre{
+			left:10px;
+		}
+		#next{
+			right: 10px;
+		}
+	</style>
+	<body>
+		<div id="box">
+			<div id="boxImg">
+				<img src="img/01.jpg" />
+				<img src="img/02.jpg" />
+				<img src="img/03.jpg" />
+				<img src="img/04.jpg" />
+			</div>
+			<a href="javascript:;" id="pre">上一张</a>
+			<a href="javascript:;" id="next">下一张</a>
+		</div>
+		
+		<script type="text/javascript">
+			let oBoxImg=document.getElementById("boxImg");
+			let oImg=oBoxImg.getElementsByTagName("img");
+			
+			let oPre=document.getElementById("pre");
+			let oNext=document.getElementById("next");
+			
+			let Lx=0;
+			let Tu=0;
+			let next1=1;//下一张
+			let prev1=3;//上一张
+			let off=false;
+			//1.幻灯片可以左右切换，控制z-index的值和位移的变化
+			
+			oPre.onclick=function(){
+				Left("X",640)
+			}
+			
+			oNext.onclick=function(){
+				Right("X",640);
+			}			
+			//moveX代表水平移动，dis移动的距离
+			function Right(moveX,dis){//鼠标点击向右移动
+				if(off) return;
+				off=true;
+				//改变它的z-index的值
+				oImg[next1].style.zIndex=2;
+				oImg[Tu].style.transition="1s";
+				oImg[Tu].style.transform=`translate${moveX}(${dis}px)`;
+				
+				setTimeout(function(){
+					off=false;
+					
+					for(let i=0;i<oImg.length;i++){
+						off=false;
+						
+						if(i!=(next1)){
+							oImg[i].style.zIndex=1;
+						}
+					}			
+				oImg[Tu].style.transition="0s";
+				oImg[Tu].style.transform=`translate${moveX}(${0}px)`;	
+				
+				prev1=Tu;
+				
+				Tu=next1;
+				
+				oImg[Tu].style.zIndex=3;					
+				next1++;
+				if(next1>3) next1=0;
+				
+				},1000)
+			}
+			
+			function Left(moveX,dis){//鼠标点击向左移动
+				if(off) return;
+				off=true;
+				//改变它的z-index的值
+				oImg[prev1].style.zIndex=2;
+				oImg[Tu].style.transition="1s";
+				oImg[Tu].style.transform=`translate${moveX}(-${dis}px)`;
+				
+				setTimeout(function(){
+					off=false;
+					
+					for(let i=0;i<oImg.length;i++){
+						off=false;
+						
+						if(i!=(prev1)){
+							oImg[i].style.zIndex=1;
+						}
+					}			
+				oImg[Tu].style.transition="0s";
+				oImg[Tu].style.transform=`translate${moveX}(${0}px)`;	
+				
+				next1=Tu;
+				
+				Tu=prev1;
+				
+				oImg[Tu].style.zIndex=3;
+				
+				prev1--;
+				if(prev1<0) prev1=3;
+				
+				},1000)
+			}
+			
+			//健盘事件上下左右;上38，下40，左37，右39
+			
+			document.onkeyup=function(ev){
+				
+				switch(ev.keyCode){
+					case 37:
+					//执行的代码块
+					Left("X",640)
+					break;
+					
+					case 38:
+					//执行的代码块
+					Left("Y",480)
+					break;
+					
+					case 39:
+					//执行的代码块
+					Right("X",640)
+					break;
+					
+					case 40:
+					//执行的代码块
+					Right("Y",480)
+					break;
+				}
+			}
+			
+			//鼠标上下左右移动的操作的事件
+			document.onmousedown=function(ev){
+				let disX=ev.pageX;
+				let disY=ev.pageY;//光标的坐标点
+				
+				document.onmousemove=function(ev){
+					if(ev.pageX-disX>100){
+						Right("X",640);
+					}
+					
+					if(ev.pageX-disX<-100){
+						Left("X",640)
+					}
+					
+					if(ev.pageY-disY>100){
+						Right("Y",640);
+					}
+					
+					if(ev.pageY-disY<-100){
+						Left("Y",640)
+					}
+				}
+				
+				document.onmouseup=function(){
+					document.onmousemove=document.onmouseup=null;
+				}
+				
+				return false;
+				
+			}
+		</script>
+		
+		
+	</body>
+</html>

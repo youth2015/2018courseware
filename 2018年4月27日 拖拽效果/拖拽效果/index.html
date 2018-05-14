@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<style type="text/css">
+		#box{
+			width: 100px;
+			height: 100px;
+			background: red;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+	</style>
+	<body>
+		<div id="box"></div>
+		
+		<script>
+			const oBox=document.getElementById("box");
+			let Ddisx=0;
+			let Didsy=0;
+			let oldx=0;
+			let oldy=0;
+			oBox.onmousedown=function(ev){
+				//ev=ev||event;
+				Ddisx=ev.pageX
+				Didsy=ev.pageY
+				oldx=oBox.offsetLeft;
+				oldy=oBox.offsetTop;
+				oBox.onmousemove=function(ev){
+					oBox.style.left=oldx+(ev.pageX-Ddisx)+"px";
+					oBox.style.top=oldy+(ev.pageY-Didsy)+"px";
+					
+				}
+				oBox.onmouseup=function(ev){
+					oBox.onmousemove=null;
+				}
+				
+			}
+		</script>
+	</body>
+</html>

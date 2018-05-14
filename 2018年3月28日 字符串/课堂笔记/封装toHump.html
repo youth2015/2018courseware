@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function toHump(){
+				let arr=str.split("-");
+				
+				for(let i=1;i<arr.length;i++){
+					
+					let frist=arr[i][0].toUpperCase();
+					
+					arr[i]=frist+arr[i].substr(1)
+					
+				}
+				
+				
+				return hump=arr.join("");
+			}
+			
+			let hump="";
+			let str="get-element-by-id";
+			
+			const ret=toHump(str);
+			
+			console.log(ret) //getElementById
+			
+		</script>
+	</body>
+</html>

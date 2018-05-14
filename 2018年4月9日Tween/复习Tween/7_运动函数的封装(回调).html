@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    #box{
+        width:100px;
+        height: 100px;
+        background: red;
+        position: absolute;
+        left:100px;
+        top:0;
+        border-radius: 50%;
+    }
+    #box2{
+        width:100px;
+        height: 100px;
+        background: green;
+        position: absolute;
+        left:100px;
+        top:150px;
+        border-radius: 50%;
+    }
+</style>
+<script src="tween.js"></script>
+<body>
+<button id="btn">停止</button>
+<div id="box"></div>
+<div id="box2"></div>
+
+<script>
+    const oBox=document.getElementById("box");
+    const oBox2=document.getElementById("box2");
+    const oBtn=document.getElementById("btn");
+    let timer=null;
+
+    oBox.onclick=function(){
+        Move(oBox,"left",1000,600,function(){
+            Move(oBox,"top",2000,500);
+        });
+    };
+    function Move(obj,attr,d,c,callback) {
+        //t,b,c,d;
+        let b=parseFloat(getComputedStyle(obj)[attr]);
+        c=c-b;
+        let oldTime=Date.now();//初始时间
+        (function animate(){
+            obj.timer=requestAnimationFrame(animate);
+            let t=Date.now()-oldTime;
+            if(t>=d){
+                t=d;
+                cancelAnimationFrame(obj.timer);
+            }
+            let v=Tween.linear(t,b,c,d);
+
+            obj.style[attr]=v+"px";
+
+            if (t===d){
+                callback && typeof callback =="function" && callback();
+            }
+        })()
+    }
+</script>
+</body>
+</html>

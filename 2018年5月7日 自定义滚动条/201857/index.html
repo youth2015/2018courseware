@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<script>
+//			let obj={
+//				age:18,
+//				name:"jock"
+//			};
+//			
+//			delete obj.age;
+//			
+//			console.log(obj); //直接删除年纪
+//			
+//			var a=10;//window.a 
+//			
+//			window.a=20;
+//			
+//			delete window.a;
+
+
+			var a=10;
+			function fn(){
+				var b=c=20;
+				
+				//b=20; //b是局部域
+				//window.c=20; //c是全局域			
+			}
+			
+			fn();
+			
+			delete this.a;
+			
+			alert(this.a);
+			
+			delete this.b;
+			
+			alert(this.b)
+			
+		</script>
+	</body>
+</html>

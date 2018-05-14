@@ -1,0 +1,92 @@
+.box{
+	width: 1000px;
+	height: 600px;
+	margin: 0 auto;
+	background: #68BCFA;
+	position: relative;
+}
+.playBox{
+	width: 1000px;
+	height: 600px;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+}
+.playScreen{
+	width: 800px;
+	height: 500px;
+	border: 8px solid #93E69D;
+	position: absolute;
+	right: 10px;
+	bottom: 10px;
+	background-color: #CCCCCC;	
+	overflow: hidden;
+}
+.start{
+	width: 150px;
+	height: 45px;
+	color: #FFFFFF;
+	background-color: #cc65e7;
+	border-radius: 22px;
+	border: 2px solid #9E9BF6;
+	position: absolute;
+	right: 330px;
+	bottom: 40px;
+	z-index: 1;
+	transition: 1s;
+}
+.yuan{
+	width: 50px;
+	height: 50px;
+	padding: 15px;
+	border: 2px solid #CCCCCC;
+	border-radius: 50%;
+	text-align: center;
+	position: absolute;
+	z-index: 1;
+	transition: 1s;
+}
+.yuan span{
+	display: block;
+	height: 25px;
+	line-height: 25px;
+	color: #FFFFFF;
+}
+.score{
+	background-color: #7c2498;
+	top: 110px;
+	left: 190px;
+}
+.points{
+	background-color: #6058ad;
+	top: 210px;
+	left: 190px;
+}
+.startAfterYuan{
+	left: 50px;
+}
+.startAfter{
+	bottom: -30px;
+	opacity: 0;
+}
+/*小恶魔*/
+.Devil{
+	width: 60px;
+	height: 60px;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	z-index: 1;
+}
+.Devil_1{
+	background-image: url(../img/live1.png);
+}
+.Devil_2{
+	background-image: url(../img/live2.png);
+}
+.Devil_3{
+	background-image: url(../img/live3.png);
+}
+.Devil_die{
+	background-image: url(../img/die.png);
+}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title></title>
+  <style>
+    .out {
+      width: 400px;
+      height: 400px;
+      border: 10px solid #000;
+      margin: 100px;
+      position: relative;
+    }
+    
+    .inner {
+      width: 100px;
+      height: 100px;
+      background-color: red;
+      /* position: absolute;
+      left: 200px;
+      top: 200px; */
+    }
+  </style>
+</head>
+<body>
+  <div class="out">
+    
+    <div class="inner"></div>
+    
+  </div>
+  <script>
+    const out = document.querySelector('.out');
+    const inner = document.querySelector('.inner');
+    
+    // ele.offsetLeft / Top
+    // 获取元素到定位父级的距离，无论这个元素有没有定位都可以拿得到这个距离
+    
+    console.log(inner.offsetLeft);
+    
+    
+    
+    
+    
+  </script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		undefined
+			1.有变量未赋值
+			2.函数默认返回值
+			3.某个对象没有这个属性
+			4.undefined
+			5.没有传入实参
+			
+		null
+			1.null
+			2.页面中没有元素的时候
+			3.window.onload
+			
+		null是根本没有这个东西，undefined是有这个东西，但是还没有赋值。
+		
+		string 字符串
+		1."",''
+		2.字符串拼接
+		3.let r="red"
+		  let w=100
+		  let h=100;
+		  
+		  'background:red;width:10px;height:10px';		
+		  
+		  'background:'+r+';width:'+w+'px;height:'+h+'px';
+		  
+		  'background:${r};width:${w}px;height:${h}px';
+		  
+		  对于后端过来的数据都是字符串;
+		 
+		 json
+		 
+		 "{}"
+		  
+		  let obj='{"key":"张三"}';
+		  
+		  注意：JSON必须为标准格式的（key值被双引号包裹）;
+		  
+		json转对象-> console.log(JSON.parse(obj));
+		  	  
+		//对象转json 
+		  
+		JSON.stringify();
+		 
+		 字符串的类型
+		 
+		 indcludes("字符串");
+		 
+		 截取类：
+		 
+		substring() substr() slice();
+		 
+		 查询类：
+		 
+		 indexOf(), lastIndexOf(), inCludes() //包住, charCodeAt()
+		 
+		 切割类：
+		 split();
+		 
+		 转换类：
+		 
+		 toUpperCase(), toLowerCase();
+		 
+		 其它：
+		 repeat() , trime();
+		 
+		let num=10,23424;
+		
+		toFixed(2) // 四舍五入
+		
+		let str=num.tostring();
+		
+		str=str.substr(0,str.indexOf(".")+3);
+		
+		
+		object:只有三种
+			Array 		[]
+			object  	{}
+			function 	function
+			
+		 对象身上才可以加属性和方法;		 
+		 
+		 let obj={age:12};
+		 obj.job="前端";
+		 
+		 console.log(obj.job);
+		 
+		 json '{"key":12}';
+		 
+		 console.log(JSON.parse(json)[0]);
+		 
+		 
+		 
+		 
+		  
+		  
+		 
+		  
+	</body>
+</html>

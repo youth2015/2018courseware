@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		//注入服务器的时间
+		
+		<script>
+			console.log(new Date(2018,3,1,0,0,0));
+			
+			new Date(new Date().getTime()) //当前时间，一般来说传入是一个服务器的时间。
+			
+			//一般服务器的时间是用秒为单位。需要秒转毫秒即*1000;
+			
+			//setDate();
+			
+			//new Date();
+			
+			
+//			let d=new Date();
+//			
+//			//d.setDate(31);
+//			d.setMonth(4);
+//			console.log(d.getDate())
+//			console.log(d.getMonth()+1);
+			
+//			let d=new Date();
+//
+//			d.setFullYear(1997);
+//			d.setMonth(12);
+//			d.setDate(0);
+//			console.log(d.getDate());
+			
+			let dd=new Date();
+			dd.setMonth(4);
+			dd.setDate(0);
+			console.log(dd.getDate())
+
+			let dd2=new Date("2018,4,11,11:12");
+			console.log(dd2);
+
+			let dd3=new Date();
+			dd3.setMonth(6);
+			dd3.setDate(0);
+
+			console.log(dd3.getDate())
+
+		</script>
+	</body>
+</html>

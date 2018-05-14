@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		#box{
+			width: 400px;
+			height: 300px;
+			background: rgba(0,0,0,.5);
+			border:1px dashed #0000FF;
+			position: absolute;
+			top: 0;
+			left:0;
+		}
+		
+	</style>
+	<body id="body">
+		<!--<div id="box">
+			
+		</div>-->
+		<script type="text/javascript">
+			const oBox=document.getElementById("box");
+						
+			document.onmousedown=function(ev){
+				const oDiv=document.createElement("div");
+				oDiv.id="box";				
+				let disx=ev.pageX;
+				let disy=ev.pageY;
+							
+				oDiv.style.left=disx+"px"
+				oDiv.style.top=disy+"px";	
+				
+				body.appendChild(oDiv);			
+				document.onmousemove=function(ev){
+					let l=Math.abs(ev.pageX-disx);
+					let t=Math.abs(ev.pageY-disy);	
+					
+					console.log(disx,ev.pageX)
+					oDiv.style.width=l+"px";
+					oDiv.style.height=t+"px";	
+					
+					let sl=Math.min(disx,ev.pageX);
+					let st=Math.min(disy,ev.pageY);
+					
+					oDiv.style.left=sl+"px";
+					oDiv.style.top=st+"px";
+					
+					//拖拽哪个小，就用哪个。								
+				}				
+				document.onmouseup=function(){
+					document.onmousemove=document.onmouseup=null;
+					body.removeChild(oDiv);
+					return false;
+				}
+				
+			}
+		</script>
+	</body>
+</html>

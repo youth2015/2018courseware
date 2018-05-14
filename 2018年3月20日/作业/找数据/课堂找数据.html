@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		*{
+			margin:0;
+			padding:0;
+		}
+		.data{
+			width: 1200px;
+			height: 800px;
+			background: url(bg.png) no-repeat;
+			margin:0 auto;
+			position: relative;
+		}
+		.btn{
+			width: 100px;
+			height: 40px;
+			background:brown;
+			color: #fff;
+			line-height: 40px;
+			text-align:center;
+			border:none;
+			cursor: pointer;
+			border-radius: 2px;
+			position: absolute;
+			right: 240px;
+			bottom: 350px;
+		}
+		.oUl {
+			position: absolute;
+			left:280px;
+			bottom: 240px;
+		}
+		.oUl li{
+			list-style: none;
+			color: #fff;
+			font-size: 18px;
+			height: 40px;
+			line-height: 40px;
+		}
+		.oUl li span{
+			float: left;
+			display: inline-block;
+		}
+		.oUl li p{
+			float: left;
+			display: inline-block;
+			height: 40px;
+			width:300px;
+		}
+	</style>
+	<script type="text/javascript" src="ktdata.js" ></script>
+	<body>
+		<div class="data">
+			<button class="btn">开始查找</button>
+			<ul class="oUl">
+				<li>
+					<span>1.所有的数字是：</span>
+					<p class="p1"></p>
+				</li>
+				<li>
+					<span>2.可以转成数字的是：</span>
+					<p class="p2"></p>
+				</li>
+				<li>
+					<span>3.转成数字的最大值是：</span>
+					<p class="p3"></p>
+				</li>
+				<li>
+					<span>4.所有运算结果是NaN的位置：</span>
+					<p class="p4"></p>
+				</li>
+			</ul>
+		</div>
+
+	</body>
+</html>

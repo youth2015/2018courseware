@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title></title>
+</head>
+<body>
+  <button>111</button>
+  <button>222</button>
+  <button>333</button>
+  <script>
+    // 闭包：函数就是闭包。只不过多发生在作用域嵌套的时候，当前这个函数可以记住它声明的时候的那个作用域，并且可以访问那个作用域的标识符，就形成了闭包。
+    
+    /**
+     * JS存放数据主要分为3个部分：
+     * - 静态区域：主要存放全局的变量，只要浏览器不关闭或者不手动指向null，那么这个变量就会一直存在。
+     * - 栈：凡是可以被自动释放的变量都存放在这里
+     * - 堆：复杂的数据类型一般都存放在这里，不会被自动释放
+     *    - 浏览器的JS引擎都存在 垃圾回收 机制，由垃圾回收器定时释放
+     */
+    
+    // var f;
+    // 
+    // function fn1 () {
+    //   var a = 1;
+    // 
+    //   function fn2 () {
+    //     console.log(a);
+    //   }
+    // 
+    //   f = fn2
+    // }
+    // 
+    // fn1()
+    // console.log(a);
+    // f()
+    
+    
+    // function fn1 (a) {
+    //   // var a = 'ok'
+    //   return function fn2 () {
+    //     console.log(a);  // 'ok'
+    //   }
+    // }
+    // 
+    // var f = fn1 ('ok')
+    // console.log(f);   // fn2
+    // f()
+    // console.log(f());  // undefined
+    
+    // ---------------------------------------------
+    // 函数自执行
+    // ;(function (){
+    //   console.log('ok');
+    // })();
+    
+    // var i = 1
+    // 
+    // ;(function (i) {
+    //   console.log(i);
+    // })(i);
+    
+    
+    var btns = document.querySelectorAll('button');
+    
+    for (var i=0; i<btns.length; i++) {
+      ;(function (i) {
+        console.log(i);
+        btns[i].onclick = function (){
+          console.log(i);
+        }
+      })(i)
+    }
+    
+    // ;(function (i) {
+    //   console.log(i);
+    //   btns[i].onclick = function (){
+    //     console.log(i);
+    //   }
+    // })(0)
+    // 
+    // ;(function (i) {
+    //   console.log(i);
+    //   btns[i].onclick = function (){
+    //     console.log(i);
+    //   }
+    // })(1)
+    // 
+    // ;(function (i) {
+    //   console.log(i);
+    //   btns[i].onclick = function (){
+    //     console.log(i);
+    //   }
+    // })(2)
+    
+    // var x = 'hello'
+    // 
+    // document.onclick = function (){
+    //   console.log(x);
+    // }
+    
+  </script>
+</body>
+</html>

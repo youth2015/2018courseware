@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title></title>
+</head>
+<body>
+  <script>
+    // 作用域：用来管理标识符可以在什么情况下被访问和修改的一套规则。
+    
+    // JS引擎不会上来就开始执行每一行代码。
+    // 首先 编译器 会逐行解析代码，并且对每一行代码进行编译
+    
+    // 先找到 var 和 function 这两个标识符
+    // 然后：
+    
+    /**
+     * 1 问作用域，当前作用域注册过 变量 a 么？
+     * 2 作用域 告诉  编译器  没有
+     * 3 那么 就声明一个变量  a，并且把 var 声明的 变量提升到代码最前面
+     * 4 然后发现没有其它 var 或者 funciton 了
+     * 5 编译完成每行代码，JS引擎开始逐行执行
+     */
+    
+    // 101010101001010
+    // console.log(a); 
+    // 
+    // var a;
+    
+    // -----------------------------------------------
+    // console.log(a);  // undefined
+    // 
+    // var a;
+    // 
+    // a = 1;
+    // 
+    // var a;
+    // 
+    // console.log(a);  // 1
+    
+    // ---------------------------------------------
+    // 看到函数，那么这个函数的整体会被提升到最前面
+    
+    // function fn(){
+    //   console.log('ok');
+    // }
+    
+    // fn()
+    // 
+    // function fn(){
+    //   console.log('ok');
+    // }
+    
+    // var fn
+    
+    // fn()
+    
+    // var fn = function () {
+    //   console.log('ok');
+    // }
+    // 
+    // fn()
+    
+    // ---------------------------------------------
+    
+    // var f;
+    // function f () {
+    //   console.log('ok');
+    // }
+
+    // console.log(f);
+    // 
+    // function f () {
+    //   console.log('ok');
+    // }
+    // 
+    // var f = 1;
+    
+    // ------------------------------------------------
+    
+    // function fn(){
+    //   var a = 1;
+    //   console.log(a);
+    // }
+    // 
+    // fn()
+    // 
+    // console.log(a);
+    
+    // 作用域 分为 全局作用域和局部作用域（通常只函数作用域）
+    
+    
+    
+  </script>
+</body>
+</html>

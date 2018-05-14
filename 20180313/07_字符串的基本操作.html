@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title></title>
+</head>
+<body>
+  <div class="container"></div>
+  <script>
+    /**
+     * 字符串：由0个或者多个字符组成的字符序列，并且放在一对引号或者反引号中。
+     * 1 length 用来获取某个字符串的长度的，它只能读不能写
+     *    字符串.length
+     * 2 字符串一但创建，就不能修改。
+     *
+     * 3 简单的字符串操作：字符串的拼接
+     *  运算符 +
+     *
+     * 4 模板字符串 ${}
+     */
+    
+    // var str1 = 'a';
+    // var str2 = "a";
+    // var str3 = `a`;
+    // var str4 = '';
+    
+    // --------------------------------
+    
+    // var str = 'abc';
+    // 
+    // console.log(str.length);  // 3
+    // 
+    // str.length = 5;
+    // 
+    // console.log(str.length);  // 3
+    // 
+    // str = '123'
+    
+    
+    // var str1 = 'hello';
+    // var str2 = 'world';
+    
+    // 字符串的拼接用 + ， + 在数字运算中代表 加法，但是一旦涉及到字符串就不再是加法的意思了，而是字符串的拼接操作
+    
+    // var str3 = str1 + ' ' + str2 + '!';
+    // 
+    // console.log(str3);
+    
+    // console.log(1 + 1);  // 2
+    // console.log('2' + 2); // 22
+    
+    // 但是 只有 + 有这个作用
+    // console.log('2' - 1);  // 1
+    
+    // ------------------------------------
+    // 在字符串嵌套的时候，引号一定要成对出现
+    // var str = '<input type="text" />'
+    
+    // 在写html结构的时候，单引号和双引号都不能换行
+    // var str = '
+    //   <div>
+    //     <span></span>
+    //   </div>
+    // '
+    
+    // var str = `<input type="text" />`
+    
+    // var href = 'http://www.baidu.com'
+    // var link = '百度'
+    
+    // var str = `
+    //   <div>
+    //     <span>
+    //       <a href="${href}">${link}</a>
+    //     </span>
+    //   </div>
+    // `;
+    
+    // var str = '<div><span><a href="' + href + '">'+link+'</a></span></div>';
+    // 
+    // var container = document.querySelector('div');
+    // 
+    // container.innerHTML = str;
+    
+    
+    // --------------------------------------------------
+    var str1 = 'hello';
+    
+    // str1 = str1 + ' world!';
+    
+    // 相当于上面那行代码的缩写形式
+    // str1 += ' world!';
+    
+    // 但是不等于下面这句话
+    str1 = ' world' + str1;
+    
+    console.log(str1);
+    
+    
+    
+    
+    
+    
+  </script>
+</body>
+</html>

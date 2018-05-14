@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<style type="text/css">
+		#box{
+			width: 200px;
+			height: 200px;
+			color: #FF0000;
+			background: red;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+	</style>
+	<body>
+		<div id="box"></div>
+		<script>
+			const oBox=document.getElementById("box");
+			const p=document.getElementById("p");
+			let Ddisx=0;
+			let Didsy=0;
+			let num=0;
+			//move在box身上触发的事件，一旦是拖动鼠标过快，鼠标会移出box，移动box就不会动了。
+			//解决：把move 绑在document上去。
+			oBox.onmousedown=function(ev){
+				let Ddisx=ev.pageX-oBox.offsetLeft;
+				let Ddisy=ev.pageY-oBox.offsetTop;
+				
+				document.onmousemove=function(ev){
+					let l=ev.pageX-Ddisx;
+					let t=ev.pageY-Ddisy;
+					
+					if(l<0){
+						l=0;
+					}else if(l>window.innerWidth-oBox.clientWidth){
+						l=window.innerWidth-oBox.clientWidth;
+					}
+					
+					if(t<0){
+						t=0;
+					}else if(t>window.innerHeight-oBox.clientHeight){
+						t=window.innerHeight-oBox.clientHeight;
+					}
+					oBox.style.left=l+"px";
+					oBox.style.top=t+"px";					
+				}
+				document.onmouseup=function(){
+					document.onmouseup=document.onmousemove=null;
+					
+					console.log(num++)
+					console.dir(document)
+				}
+				
+				return false;
+				
+			}
+		</script>
+	</body>
+</html>

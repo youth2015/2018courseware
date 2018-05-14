@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<button class="sub">-</button>
+		<input type="text" class="text" value="0" />
+		<button class="add">+</button>
+		
+		<script type="text/javascript">
+			
+			var oSub=document.querySelector(".sub");
+			var oText=document.querySelector(".text");
+			var oAdd=document.querySelector(".add");
+			
+			var oValue=oText.value;
+			var oVa=0;
+			
+			//console.log(oValue);
+			//oSub.onclick=fn1;
+			//oAdd.onclick=fn2;
+			
+			oSub.onclick=function(){
+				
+				oVa--;
+				
+				if(oVa<0) oVa=4;
+				oText.value=oVa;
+			}
+				
+			oAdd.onclick=function(){
+				oVa++
+				
+				if(oVa>=4) oVa=0;
+				oText.value=oVa;
+			}
+			
+		</script>
+	</body>
+</html>

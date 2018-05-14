@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>模拟手机短信发送</title>
+	<style>
+	*{
+		margin:0;
+		padding:0;
+		font-family: '微软雅黑';
+	}
+	html,body{ height: 100%; }
+	a{
+		text-decoration: none;
+	 }
+	body{
+		background: url(img/bg.jpg) no-repeat center;
+	}
+	#centerBox{
+		width:340px;
+		height: 650px;
+		background: #e8e7ef;
+		box-shadow: 10px 10px 10px #8c89b6;
+		position: fixed;
+		left:50%;
+		top:50%;
+		margin-left:-170px;
+		margin-top:-325px;
+		border-radius: 16px;
+	}
+	.line{
+		width:56px;
+		height: 4px;
+		background: #9fa0a5;
+		border-radius: 4px;
+		position: absolute;
+		top:20px;
+		left:147px;
+	}
+	.log{
+		bottom:14px;
+		left:150px;
+		position: absolute;
+	}
+	.centerBox-m{
+		width:305px;
+		height: 534px;
+		position: absolute;
+		left:16px;
+		top:43px;
+		border:2px solid #b9b8bd;
+		background: #fff;
+		
+	}
+	#messageBody{
+		height: 477px;
+		overflow: auto;
+	}
+	#messageBody span{
+		max-width:196px;
+		padding:7px 10px 4px 14px;
+		border-radius: 3px;
+		position: relative;
+		font-size: 12px;
+		line-height: 24px;
+		word-break: break-all;
+	}
+	#messageBody div{
+		margin-top: 18px;
+	}
+	.rico,.lico{
+		width:275px;
+	}
+	.rico,.lico,.rico img,.rico span,.lico img,.lico span{
+		float: left;
+		margin-left:10px;
+		min-height: 24px;
+	}
+	.rico img,.rico span{
+		float: right;
+	}
+	.lico span{
+		background: #e5e5e5;
+		color: #4d4d4d;
+	}
+	.lico em{
+		width:5px;
+		height: 9px;
+		overflow: hidden;
+		position: absolute;
+		left:-5px;
+		top:15px;
+		background: url(img/l01.png) no-repeat;
+	}
+	.rico em{
+		width:5px;
+		height: 11px;
+		overflow: hidden;
+		position: absolute;
+		right:-5px;
+		top:15px;
+		background: url(img/r01.png) no-repeat;
+	}
+	.rico span{
+		color: #fff;
+		background: #b9b3cd;
+	}
+	#send{
+		height: 57px;
+		background: #e7e7e7;
+	}
+	#send img{
+		float: left;
+		margin:10px 14px 0;
+	}
+	#text{
+		float: left;
+		width:164px;
+		height: 30px;
+		line-height: 30px;
+		background: #fff;
+		padding:5px 10px;
+		font-size: 14px;
+		color:#000;
+		border:none;
+		outline: none;
+		margin-top:10px;
+		border-radius: 5px;
+	}
+	#submit{
+		float: left;
+		width:58px;
+		font-size: 16px;
+		margin-top:10px;
+		text-align: center;
+		color: #e27089;
+		height: 40px;
+		line-height: 40px;
+		border:none;
+		background: none;
+		cursor: pointer;
+		outline: none;
+	}
+	</style>
+</head>
+<body>
+	<div id="centerBox">
+		<div class="line"></div>
+		<div class="centerBox-m">
+			<div id="messageBody">
+				<div class="rico">
+					<img src="img/rico.png"/>
+					<span>hi! 美女能聊聊么？<em></em></span>
+				</div>
+				<div class="lico">
+					<img src="img/lico.png"/>
+					<span>滚！<em></em></span>
+				</div>
+			</div>
+			<div id="send">
+				<img src="img/lico.png" id='img' />
+				<input type="text" placeholder="请输入" id="text" />
+				<input type="submit" value="发送" id="submit" />
+			</div>
+		</div>
+		<img class="log" src="img/miaov.png"/>
+	</div>
+	<script>
+		/**
+		 * 1 点击头像可以切换图片
+		 * 2 点击发送按钮
+		 * 		-如果文本框的内容是空的，那么弹出一个提示：请输入点什么吧!
+		 * 		-如果不为空，就需要判断，是发送左侧还是右侧
+		 * 3 解决如何判断左侧还是右侧的问题，要么是左要么是右，所以只对应两种情况，可以想到正好对应某个变量的 true 和 false 这两种状态
+		 */
+		
+		var msg = document.getElementById('messageBody');
+		var avatar = document.getElementById('img');
+		var text = document.getElementById('text');
+		var submit = document.getElementById('submit');
+		
+		var invoke = true;
+		
+		text.focus();
+		
+		avatar.onclick = function (){
+			// if (invoke) {
+			// 	avatar.src = 'img/rico.png'
+			// } else {
+			// 	avatar.src = 'img/lico.png'
+			// }
+			avatar.src = invoke ? 'img/rico.png' : 'img/lico.png';
+			invoke = !invoke;
+			text.focus();
+		};
+		
+		submit.onclick = function (){
+			var val = text.value;
+			
+			if (val === '') {
+				alert('请输入点什么吧!');
+			} else {
+				// 分两种情况，如果 invoke 是真的，那么发送到左边
+				
+				// if (invoke) {
+				// 	msg.innerHTML = `
+				// 	<div class="lico">
+				// 		<img src="img/lico.png"/>
+				// 		<span>${val}<em></em></span>
+				// 	</div>${msg.innerHTML}
+				// 	`;
+				// } else {
+				// 	msg.innerHTML = `
+				// 	<div class="rico">
+				// 		<img src="img/rico.png"/>
+				// 		<span>${val}<em></em></span>
+				// 	</div>${msg.innerHTML}
+				// 	`;
+				// }
+				
+				var cls = invoke ? 'lico' : 'rico';
+				
+				msg.innerHTML = `<div class="${cls}">
+									<img src="img/${cls}.png"/>
+									<span>${val}<em></em></span>
+								</div>${msg.innerHTML}
+								`;
+			}
+			
+			
+			text.value = '';
+			text.focus();
+		};
+		
+	</script>
+</body>
+</html>

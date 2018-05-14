@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		#box1{
+			width: 200px;
+			height: 200px;
+			color: #FF0000;
+			background: red;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+		#box2{
+			width: 200px;
+			height: 200px;
+			color: #FF0000;
+			background: blue;
+			margin: 200px auto;
+		}
+		#box2.active{
+			background: pink;
+		}
+	</style>
+	<body>
+		<div id="box1"></div>
+		<div id="box2"></div>
+		<script>
+			const oBox1=document.getElementById("box1");
+			const oBox2=document.getElementById("box2");
+			
+			oBox1.onmousedown=function(ev){
+				let disx=ev.pageX-oBox1.offsetLeft;
+				let disy=ev.pageY-oBox1.offsetTop;
+			
+				document.onmousemove=function(ev){
+					let bl=ev.pageX-disx;
+					let bt=ev.pageY-disy;
+					
+					let br=bl+oBox1.offsetWidth;
+					let bb=bt+oBox1.offsetHeight;
+					
+					let cl=oBox2.offsetLeft;
+					let ct=oBox2.offsetTop;
+					
+					let cr=cl+oBox2.offsetWidth;
+					let cb=ct+oBox2.offsetHeight;
+					
+					if(br<cl||bb<ct||bl>cr||bt>cb){
+						oBox2.className=""
+					}else{
+						oBox2.className="active";
+					}
+						
+					oBox1.style.left=bl+"px";
+					oBox1.style.top=bt+"px";				
+				}
+				
+				document.onmouseup=function(){
+					document.onmousemove=document.onmouseup=null;
+				}
+				
+				return false;
+			}
+		</script>
+	</body>
+</html>

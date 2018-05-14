@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title></title>
+</head>
+<body>
+  <button class="sub">-</button>
+  <input type="text" class="text" value="0">
+  <button class="add">+</button>
+  
+  <script>
+  /**
+   * 点击-，让value值 -1，当小于0的时候，就变成4
+   * 点击+，让value值 +1，当大于4的时候，就变成0
+   */
+  
+   var sub = document.querySelector('.sub');
+   var add = document.querySelector('.add');
+   var text = document.querySelector('.text');
+   
+   var a = 0;
+   
+   sub.onclick = function (){
+     a--;
+     
+     if (a < 0) a = 4
+     
+     console.log(a);
+     
+     text.value = a;
+   }
+   
+   add.onclick = function (){
+     a++;
+     
+     if (a > 4) a = 0
+     
+     console.log(a);
+     
+     text.value = a;
+   }
+  
+  </script>
+  
+</body>
+</html>

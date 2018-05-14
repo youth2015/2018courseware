@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title></title>
+</head>
+<body>
+  <script>
+    /**
+     * 1 函数也是一种数据
+     * 2 typeof 函数，返回的不是 'object' 而是 'function'
+     *    - 函数也是对象，但是它是一个可以执行的对象，所以很有必要和普通的对象做一个区分。
+     *    - 在JS中函数是第一等公民
+     *
+     * 函数声明可以在 任意地方去调用，函数表达式，必须在赋值之后才能调用
+     */
+    
+    // fn1()
+    // fn()
+    
+    // 函数表达式
+    // var fn = function (){
+    //   console.log('ok');
+    // }
+    
+    // fn()
+    
+    // 函数声明
+    // function fn1 () {
+    //   console.log('fn1');
+    // }
+    
+    // ---------------------------------------------
+    
+    var fn = function f(){
+      // console.log('ok');
+      console.log(f);   // 递归
+      // f 这个名字  只能再函数内部 使用 
+    }
+    
+    fn()
+    // f()  // 不能再使用  函数的名字 去函数 外部 调用函数了
+    
+    
+    
+    
+     
+  
+    
+  
+  </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    #box{
+        width: 100px;
+        height: 100px;
+        background: red;
+        position: absolute;
+        left: 50px;
+        top:0;
+    }
+</style>
+<script type="text/javascript"src="tween.js"></script>
+<body>
+
+<div id="box"></div>
+
+<script>
+    let oBox=document.getElementById("box");
+    let d=1000;
+    let c=600;
+    let b=parseFloat(getComputedStyle(oBox).left);
+
+    document.onclick=function(){
+        move(oBox,"top",700,500);
+    };
+    function move(obj,arrt,d,c) {
+        c=c-b;//真正的目标值=目标点-当前目标值。
+        let oldTime=Date.now();//初时间;
+         (function animate(){//制造一个闭包的环境，创建一个作用链，避免变量有冲突。
+                let timer=requestAnimationFrame(animate);
+                let t=Date.now()-oldTime;
+
+                if (t>=d){ //现在的时间大于等于1秒钟用去的就让它停下来;
+                    t=d;
+                    cancelAnimationFrame(timer)
+                }
+                //oBox.style.left=b + d*(t/c)+"px";
+                console.log(oBox)
+                let v=Tween.linear(t,b,c,d);
+                obj.style[arrt]=v+"px";
+         })();
+
+    }
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title></title>
+  <style>
+    .container {
+      width: 800px;
+    }
+    
+    .container .btns {
+      margin: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+    }
+    
+    .container .btns button {
+      width: 200px;
+      height: 50px;
+      font-size: 30px;
+      font-weight: bold;
+    }
+    
+    .container .btns button.active {
+      background-color: pink;
+    }
+    
+    .container div {
+      width: 700px;
+      height: 400px;
+      margin: 0 50px;
+      border: 2px solid #000;
+      text-align: center;
+      font-size: 200px;
+      line-height: 400px;
+      display: none;
+    }
+    
+    .container div.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    
+    <section class="btns">
+      <button class="active">1</button>
+      <button>2</button>
+      <button>3</button>
+    </section>
+    
+    <div class="active">1111</div>
+    <div>2222</div>
+    <div>3333</div>
+    
+  </div>
+  <script>
+    /**
+     * 选项卡：通常来说 就是 一组元素  去控制 另外一组对应的元素，称之为选项卡
+     */
+    
+    var btns = document.querySelectorAll('.btns button');
+    var divs = document.querySelectorAll('.container div');
+    
+    var len = btns.length;
+    
+    
+    for (var i=0; i<len; i++) {
+      btns[i].x = i;
+      btns[i].onclick = function (){
+        for (var i=0; i<len; i++) {
+          btns[i].classList.remove('active')
+          divs[i].classList.remove('active')
+        }        
+        // for (var i=0; i<len; i++) {
+        //   divs[i].classList.remove('active')
+        // }        
+        divs[this.x].classList.add('active')       
+        this.classList.add('active')
+      }
+    }
+    
+    
+    
+    
+  </script>
+</body>
+</html>

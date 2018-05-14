@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		body,
+		ul,
+		li,
+		h2 {
+			margin: 0;
+			padding: 0;
+		}
+		
+		li {
+			list-style: none;
+		}
+		
+		body {
+			width: 1000px;
+			height: 800px;
+			background: url(img/bg.png) no-repeat center center;
+			margin: 0 auto;
+		}
+		
+		.wrap {
+			width: 384px;
+			height: 707px;
+			background: url(img/bg1.png) no-repeat center center;
+			margin: 0 auto;
+			position: relative;
+		}
+		
+		.list {
+			width: 280px;
+			position: absolute;
+			left: 46px;
+			top: 64px;
+		}
+		.list h2 {
+			height: 48px;
+			font: 14px/48px arial;
+			color: #fff;
+			background: rgba(0,0,0,.8);
+			box-sizing: border-box;
+			padding-left: 10px;
+			margin-top: 10px;
+			cursor: pointer;
+		}
+		.list h2:nth-of-type(1){
+			margin: 0;
+		}
+		.list h2.active {
+			background: rgba(221,84,111,.8)
+		}
+		
+		.list h2.active span {
+			width: 0;
+			height: 0;
+			display: inline-block;
+			border: 6px dashed rgba(0,0,0,0);
+			border-top: 6px solid rgba(255,255,255,1);
+			position: relative;
+			top: 4px;
+		}
+		
+		.list h2 span {
+			width: 0;
+			height: 0;
+			display: inline-block;
+			border: 6px dashed rgba(0,0,0,0);
+			border-left: 6px solid rgba(255,255,255,1);
+			margin-right: 10px;
+			position: relative;
+			top: 1px;
+		}
+		
+		.list ul {
+			background: #000000;
+			color: #fff;
+			display: none;
+		}
+		
+		.list ul.active {
+			display: block;
+		}
+		
+		.list li {
+			height: 40px;
+			font: 14px/40px "微软雅黑";
+			box-sizing: border-box;
+			padding-left: 34px;
+		}
+		.list li:hover {
+			background: rgba(255,255,255,.4);
+		}
+		
+		.list li.selected {
+			background: rgba(221,84,111,.6);
+		}
+		
+		.list li.selected:hover {
+			background: rgba(221,84,111,.6);
+		}
+	</style>
+
+</head>
+
+<body onselectstart="return false;">
+	<div class="wrap">
+		<div class="list">
+			<h2><span></span>我的好友</h2>
+			<ul>
+				<li>小佳Love</li>
+				<li>从来就是这么正经</li>
+				<li>leo是个胖子</li>
+				<li>momo不是陌陌</li>
+			</ul>
+			<h2><span></span>企业好友</h2>
+			<ul>
+				<li>习近平</li>
+				<li>普京</li>
+				<li>奥巴马</li>
+			</ul>
+			<h2><span></span>黑名单</h2>
+			<ul>
+				<li>安倍</li>
+				<li>杜特尔特</li>
+			</ul>
+		</div>
+	</div>
+	<script>
+		var oH2=document.querySelectorAll(".list h2");
+		var oUl=document.querySelectorAll(".list ul");
+		
+		var len=oH2.length;
+		var prev=0;
+		var prevItem=0;
+		
+		for(var i=0;i<len;i++){
+			oH2[i].index=i;
+			
+			oH2[i].onclick=function(){
+				
+				if(this.className!="active"){
+					oH2[prev].classList.remove("active");
+					oUl[prev].classList.remove("active");
+				}				
+				ret=this.classList.toggle("active");
+				oUl[this.index].classList.toggle("active",ret); 	 
+				
+				prev=this.index;
+			}	
+		}
+		var iLi=document.querySelectorAll("ul li");
+		//console.log(iLi);
+		for(var i=0;i<iLi.length;i++){
+			iLi[i].index=i;
+			iLi[i].onclick=function(){				
+				if(this.className!="selected"){
+					iLi[prevItem].classList.remove("selected");
+				}	
+				this.classList.toggle("selected");
+				
+				prevItem=this.index;
+			}
+		}
+		
+	</script>
+</body>
+
+</html>

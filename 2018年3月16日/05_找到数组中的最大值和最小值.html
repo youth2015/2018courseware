@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title></title>
+</head>
+<body>
+  <script>
+    var arr = [6, 21, 3, 40, 5];
+    
+    // 求最大值
+    
+    var a = 0;
+    
+    // a and arr[0]   a = arr[0]
+    // a and arr[1]   a = arr[1]
+    // a and arr[2]   a = arr[1]
+    // a and arr[3]   a = arr[3]
+    // a and arr[4]   a = arr[3]
+
+    for (var i=0; i<arr.length; i++) {
+      if (a < arr[i]) {
+        a = arr[i]
+      }
+    }
+    
+    console.log(a);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+  </script>
+</body>
+</html>

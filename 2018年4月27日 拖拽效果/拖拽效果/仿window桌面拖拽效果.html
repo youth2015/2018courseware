@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+	.box{
+	    width: 100px;
+	    height: 100px;
+	    background: red;
+	    position: absolute;
+	    top:0;
+	    left:0;
+	    
+	}
+</style>
+	<body id="body">
+		<div class="box"></div>
+		<script type="text/javascript">
+			const oBox=document.querySelector(".box");
+			
+			oBox.onmousedown=function(ev){
+				let disx=ev.pageX-oBox.offsetLeft;
+				let disy=ev.pageY-oBox.offsetTop;
+				//创建新的元素
+				let div=document.createElement("div");
+				div.className="box";
+				div.style.opacity=.5;				
+							
+				div.style.left=oBox.offsetLeft+"px";
+				div.style.top=oBox.offsetTop+"px";
+				
+				body.appendChild(div);
+				console.log(div);				
+				document.onmousemove=function(ev){
+					let l=ev.pageX-disx;
+					let t=ev.pageY-disy;
+					
+					if(l<0){
+						l=0;
+					}else if(l>window.innerWidth-div.clientWidth){
+						l=window.innerWidth-div.clientWidth;
+					}
+					if(t<0){
+						t=0;
+					}else if(t>window.innerHeight-div.clientHeight){
+						t=window.innerHeight-div.clientHeight;
+					}
+					
+					div.style.left=l+"px";
+					div.style.top=t+"px";
+				}
+				
+				document.onmouseup=function(){
+					document.onmouseup=document.onmousemove=null;
+					
+					oBox.style.left=div.offsetLeft+'px';
+					oBox.style.top=div.offsetTop+'px';
+					
+					div.remove();
+				}
+				
+				return false;
+				
+			}
+		</script>
+	</body>
+</html>

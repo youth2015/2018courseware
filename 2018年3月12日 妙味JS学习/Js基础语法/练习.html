@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>改变div大小</title>
+	</head>
+	<style type="text/css">
+		#box{
+			width: 100px;
+			height: 100px;
+			background: red;
+			transition: all ease-in-out 1s;
+		}
+	</style>
+	<body>
+		<div class="box" id="box"></div>
+		
+		<script type="text/javascript">
+			var oBox=document.getElementById("box");
+			var oBg="background";	
+			
+			
+			oBox.onmouseover=function(){			
+				this.style.width=200+"px";
+				this.style.height=200+"px";
+				this.style['-webkit-transform']='rotate(360deg)';
+				this.style['-moz-transform']='rotate(360deg)';
+				this.style['-o-transform']='rotate(360deg)';
+				this.style['transform']='rotate(360deg)';
+				this.style[oBg]="blue";
+				
+			}
+			oBox.onmouseout=function(){
+				this.style.width=100+"px";
+				this.style.height=100+"px";
+				this.style['-webkit-transform']='rotate(-360deg)';
+				this.style['-moz-transform']='rotate(-360deg)';
+				this.style['-o-transform']='rotate(-360deg)';
+				this.style['transform']='rotate(-360deg)';
+				this.style[oBg]="red";
+			}
+		</script>
+	</body>
+</html>

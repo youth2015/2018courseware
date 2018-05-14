@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title></title>
+</head>
+<body>
+  <input type="text">
+  <button>提交</button>
+  <script>
+    //return 代表函数的返回值，只能再函数内部使用，他有两个作用
+    //- return 可以终止后面的代码继续执行
+    //- return 后面的值代表函数的返回值
+    
+    function fn (a, b) {
+      console.log(a);
+      return
+      alert('ok')
+      console.log(b);
+    }
+    
+    // fn(1, 2)
+    
+    var input = document.querySelector('input');
+    var btn = document.querySelector('button');
+    
+    btn.onclick = function (){
+      var val = input.value
+      
+      if (!val) return
+      
+      console.log('ok');
+    }
+    
+    // return 后面是什么，那么这个函数 执行完 的返回结果就是什么
+    
+    function test (a, b) {
+      // return a + b
+      return [a, b]
+    }
+    
+    // var ret = test(1, 2)
+    // 
+    // console.log(ret);
+    
+    function fn0(){
+      console.log('ok');     
+      // return 写和不写都是存在的，如果不写或者写了后面没有值
+      // 那么这个函数的返回值 默认 是  undefined
+      // return
+    }
+    
+    // console.log(fn0());    
+    function ti (a, b, c) {
+      function fn(){
+        return a + b + c
+      }
+      return fn
+    }
+    
+    var f = ti(1, 1, 1)
+    
+    console.log(f);
+    console.log(f());
+    
+    
+  </script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title></title>
+  <style>
+    button {
+      width: 100px;
+      height: 40px;
+    }
+    img {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <button class="prev">prev</button>
+  <button class="next">next</button>
+  <div>
+    <p class="info">1/4</p>
+  </div>
+  <img src="" class="img" width="400" />
+  <script>
+    /**
+     * 点击上一张，如果是第一张那么就切换到最后一张，否则切换到上一张
+     * 点击下一张，如果是最后一张那么就切换到第一张，否则切换到下一张
+     */
+    
+    var img = document.querySelector('.img');
+    var next = document.querySelector('.next');
+    var prev = document.querySelector('.prev');
+    var info = document.querySelector('.info');
+  
+    var current = 1;
+    
+    tabImg ();
+    
+    function tabImg () {
+      img.src = './img1/'+current+'.jpg';
+      info.innerHTML = current + '/' + 4;
+    }
+
+    next.onclick = function (){
+      current++;
+      if (current > 4) {
+        current = 1
+      }
+      
+      tabImg ();
+      
+      // img.src = './img1/'+current+'.jpg';
+      // info.innerHTML = current + '/' + 4;
+    }
+    
+    prev.onclick = function (){
+      current--;
+      if (current < 1) {
+        current = 4
+      }
+      
+      tabImg ();
+      
+      // img.src = './img1/'+current+'.jpg';
+      // info.innerHTML = current + '/' + 4;
+    }
+  
+  </script>
+</body>
+</html>

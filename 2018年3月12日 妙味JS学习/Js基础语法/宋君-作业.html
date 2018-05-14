@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		*{
+			margin:0;
+			padding:0;
+			list-style: none;
+			
+		}
+		
+		.Box{
+			width: 800px;
+			height: 800px;
+			border:1px solid #FF0000;
+		}
+		.box{
+			height: 30px;
+			line-height: 30px;
+			padding-top:10px;
+			text-align: center;
+			width: 800px;
+			position: relative;
+		}
+		.box .set{
+			display: inline-block;
+			padding:10px;
+			background: #FF0000;
+			color:#fff;
+			line-height: 30px;
+			font-size: 14px;
+			cursor: pointer;
+		}
+		#show{
+			width: 800px;
+			height: 800px;
+			background: rgba(0,0,0,.5);
+			position: absolute;
+			left: 0;
+			top: 0;
+			z-index: 9;
+			display: none;
+		}
+		.sallbox{
+			height: 300px;
+			background:#fff;
+			border:10px solid #ccc;
+			position: absolute;
+			z-index: 10;
+			right: 0;
+			bottom: 0;
+		}
+		
+		.middleBox{
+			width: 100px;
+			height:100px;
+			border:1px solid #000;
+			margin-top: 30px;
+			margin-left: 30px;
+		}
+		.list{
+			height: 30px;
+			line-height: 30px;
+		}
+		.list .sp1{
+			float: left;
+			display: inline-block;
+			width:150px;
+			padding:10px;
+		}
+		.list .listColor{
+			width: 200px;
+			
+			float: left;
+			padding:10px;
+		}
+		.list .listColor li{
+			width: 40px;
+			height: 40px;
+			line-height:40px;
+			text-align: center;
+			background: #ccc;
+			border:1px solid #f4f4f4;
+			float: left;
+			font-size: 12px;
+			cursor: pointer;
+		}
+		.button{
+			width: 200px;
+			height: 40px;
+			margin:0 auto;
+			
+		}
+		.button span{
+			width: 40px;
+			height: 40px;
+			background: dodgerblue;
+			color: #fff;
+			display: inline-block;
+			padding:5px;
+			line-height: 40px;
+			text-align: center;
+			cursor: pointer;
+		}
+		#red{
+			background: #FF0000;
+		}
+		#blue{
+			background: blue;
+		}
+		#yellow{
+			background: yellow;
+		}
+	</style>
+	<body>
+		
+		<div class="Box">
+			<div class="box">请为下面的div设置样式<strong class="set">点击设置</strong></div>
+			
+			<div class="middleBox"></div>
+			
+			<div id="show">
+				<div class="sallbox">
+					<div class="list list1">
+						<span class="sp1">请选择颜色背景</span>
+						<ul class="listColor listColor1">
+							<li id="red">红</li>
+							<li id="yellow">黄</li>
+							<li id="blue">蓝</li>
+						</ul>
+					</div>
+					<div class="list list2">
+						<span class="sp1">请选择宽（px）</span>
+						<ul class="listColor listColor2">
+							<li id="w200">200</li>
+							<li id="w300">300</li>
+							<li id="w400">400</li>
+						</ul>
+					</div>
+					<div class="list list3">
+						<span class="sp1">请选择高（px）</span>
+						<ul class="listColor listColor3">
+							<li id="h200">200</li>
+							<li id="h300">300</li>
+							<li id="h400">400</li>
+						</ul>
+					</div>
+					
+					<div class="button">
+						<span class="qd">确定</span>
+						<span class="hf">恢复</span>
+					</div>
+				</div>
+			
+			</div>
+		</div>
+
+
+		<script type="text/javascript">
+			var oSet=document.querySelector(".set");
+			var oShow=document.getElementById("show");
+			var oRed=document.querySelector("#red");
+			var oYellow=document.querySelector("#yellow");
+			var oblue=document.querySelector("#blue");
+			var oW200=document.querySelector("#w200");
+			var oW300=document.querySelector("#w300");
+			var oW400=document.querySelector("#w400");
+			var oH200=document.querySelector("#h200");
+			var oH300=document.querySelector("#h300");
+			var oH400=document.querySelector("#h400");		
+			var oQd=document.querySelector(".qd");
+			var oHf=document.querySelector(".hf");
+	
+			var MiddleBox=document.querySelector(".middleBox");
+			
+			oSet.onclick=function(){
+				oShow.style.display="block";
+			}
+			
+			oRed.onclick=function(){
+				MiddleBox.style.background="red";
+			}
+			oYellow.onclick=function(){
+				MiddleBox.style.background="yellow";
+			}
+			oblue.onclick=function(){
+				MiddleBox.style.background="blue";
+			}
+			
+			oW200.onclick=function(){
+				MiddleBox.style.width=200+"px";
+			}
+			oW300.onclick=function(){
+				MiddleBox.style.width=300+"px";
+			}
+			oW400.onclick=function(){
+				MiddleBox.style.width=400+"px";
+			}
+			oH200.onclick=function(){
+				MiddleBox.style.height=200+"px";
+			}
+			oH300.onclick=function(){
+				MiddleBox.style.height=300+"px";
+			}
+			oH400.onclick=function(){
+				MiddleBox.style.height=400+"px";
+			}
+			
+			oQd.onclick=function(){
+				oShow.style.display="none";
+			}
+			
+			oHf.onclick=function(){
+//				MiddleBox.style.background="#fff";
+//				MiddleBox.style.border="1px solid #000";
+//				MiddleBox.style.width=100+"px";
+//				MiddleBox.style.height=100+"px";
+				MiddleBox.style.cssText="";
+			}
+		</script>
+	</body>
+</html>

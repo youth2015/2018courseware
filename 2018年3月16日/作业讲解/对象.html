@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title></title>
+</head>
+<body>
+  <input type="text" class="text" value="hello" placeholder="请输入文字">
+  
+  <script>
+    var input = document.querySelector('input');
+    
+    // input 就是一个对象，它有很多属性，每个属性都是由 属性名(key) 和 属性值(val) 组成的，那么有一些特殊的属性，称之为方法，比如 focus，这个属性是一个函数，也就是说如果对象的某个属性是一个函数就叫做方法
+    
+    // input.focus()
+    
+    // 对象是一种数据
+    
+    function fn() {
+      
+    }
+    
+    // 函数是一种对象，所以函数也是数据
+    
+    // input.id = 'text'
+    // console.log(input.id);
+    
+    // fn.a = 1;
+    // 
+    // console.log(fn.a);
+    
+    // 凡是对象 都可以进行属性操作，哪怕是这个属性不存在，如果一个对象不存在某个属性，但是想给它添加这个属性，只需要简单的  对象.属性 = 想要的值
+    
+    // var arr = []
+    // 
+    // arr.a = 123;
+    // 
+    // console.log(arr);
+    // console.log(arr.a);
+    
+    // 在JS中定义个对象 使用 {}
+    
+    // var obj = {
+    //   a: 1,   // 每个 key  和 val 称之为 键值对
+    //   b: [1, 2, 3],
+    //   fn: function () {
+    //     alert('ok')
+    //   }
+    // };
+    // 
+    // console.log(obj.a);  // 1
+    // obj.fn()
+    
+    // var input = {
+    //   type: 'text',
+    //   id: '',
+    //   value: '',
+    //   class: 'text',
+    //   placeholder: '请输入内容',
+    //   focus: function () {
+    //     console.log('我聚焦了!')
+    //   },
+    //   obj: {
+    // 
+    //   }
+    // }
+    // 
+    // console.log(input);
+    
+    
+    // var obj ={
+    //   a: 1,
+    //   b: 2
+    // }
+    // 
+    // console.log(obj.length);
+    // 
+    // for (var i=0; i<obj.length; i++) {
+    //   console.log(obj[i]);
+    // }
+    
+    
+    var obj ={
+      '0': 'a',
+      '1': 'b',
+      '2': 'c',
+      '3': 'd',
+      length: 4
+    }
+    
+    // var arr = ['a', 'b', 'c', 'd']
+    
+    console.log(obj.length);
+    
+    for (var i=0; i<obj.length; i++) {
+      console.log(obj[i]);
+    }
+    
+    
+    
+    
+  </script>
+  
+  
+  
+</body>
+</html>

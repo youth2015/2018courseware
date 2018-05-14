@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title></title>
+</head>
+<body>
+  <script>
+    /**
+     * JSON: JSON(JavaScript Object Notation, JS 对象标记) 是一种轻量级的数据交换格式。
+     *
+     * JSON实际上就是一种字符串格式的对象。
+     * JSON对象和JSON字符串可以互相转换
+     *
+     * JSON.parse(json数据) 可以将json字符串转换成对象
+     * JSON.stringify(对象数据) 可以将普通的对象转换成json字符串
+     *
+     * 注意事项：
+     *  - JSON里面的key必须用双引号包起来
+     *  - JSON里面的数据不能有函数
+     */
+    
+    let json = `{
+      "a": 1,
+      "b": "2"
+    }`;
+    
+    // ------------------------------------
+    // const arr = [1, 2, 3, 4];
+    // const obj = {
+    //   a: 1,
+    //   b: 2
+    // };
+    // 
+    // console.log(JSON.stringify(arr));
+    // console.log(typeof JSON.stringify(obj));
+    
+    // -------------------------------------
+    // console.log(JSON.parse(json));
+    
+    // ------------------------------------
+    // const obj = {
+    //   "a": 1,
+    //   fn(){
+    //     console.log(123);
+    //   }
+    // };
+    
+    // console.log(JSON.stringify(obj));
+    
+    // -----------------------------------
+    // JSON的应用：深拷贝
+    
+    let obj1 = {
+      a: [1, 2, 3],
+      b: 2
+    };
+    
+    let obj2 = {};
+
+    // Object.assign(obj2, obj1);
+    
+    // console.log(obj2);
+    
+    // obj2.b = 3;
+    // obj2.a[0] = 10;
+    // 
+    // console.log(obj2);
+    // console.log(obj1);
+    
+    obj2 = JSON.parse(JSON.stringify(obj1));
+    
+    // console.log(obj2);
+    
+    obj2.a[0] = 10;
+    
+    console.log(obj2);
+    console.log(obj1);
+    
+    
+  </script>
+</body>
+</html>

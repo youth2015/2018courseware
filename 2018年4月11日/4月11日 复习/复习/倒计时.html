@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" value="2018,04,11,18:12:12" id="txt" />
+		<input type="button" value="开始倒计时" id="btn" />
+		
+		<p>距离下课时间：<strong id="stg"></strong></p>
+		<script type="text/javascript">
+			const oTxt=document.getElementById("txt");
+			const oBtn=document.getElementById("btn");
+			const oStg=document.getElementById("stg");
+			let timer=null;
+
+			oBtn.onclick=function () {
+				clearInterval(timer)
+				let Val=oTxt.value;
+				let F=new Date(Val);//未来的时间
+
+				function autoPlay(){
+					let o=new Date();//i当前的时间
+					let t=Math.floor(F-o)/1000;
+					if(t<0){
+						clearInterval(timer)
+						alert("时间到了")
+					}else {
+						let iday=Math.floor(t/86400); //天
+						t%=86400;
+						let iH=Math.floor(t/3600);//时
+						t%=3600;
+						let iM=Math.floor(t/60);//分
+
+						let iS=Math.floor(t%60);//秒
+
+						oStg.innerHTML=toD(iday)+"天"+toD(iH)+"时"+toD(iM)+"分"+toD(iS)+"秒";
+					}
+
+				}
+				autoPlay();
+				timer=setInterval(autoPlay,1000)
+			};
+			function toD(n){
+				return n<10?n+"0":n+"";
+			}
+
+		</script>
+	</body>
+</html>

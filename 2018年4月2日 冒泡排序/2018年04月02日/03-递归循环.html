@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title></title>
+</head>
+<body>
+  <script>
+    // 递归：函数自己玩自己(一定有个停止的条件)
+    
+    // function fn (n) {
+    //   if (n >= 0) {
+    //     console.log(n--);
+    //     fn(n)
+    //   }
+    // }
+    // 
+    // fn(4)
+    
+    
+    // 递归求阶乘
+    // function factorial (n) {
+    //   if (n === 1) return n
+    //   return n * factorial(n-1)
+    // }
+    // 
+    // console.log(factorial (5));
+    
+    
+    // 3 * f(2)    2 * f(1)   1
+    
+    const arr = ['a', 'b', 'c']
+    
+    // for (let i=0; i<arr.length; i++) {
+    //   console.log(arr[i]);
+    // }
+    
+    // 循环能做的事情  递归 99% 都能做
+    // 递归能做的实行 循环 就不一定能做了
+    
+    function fn (i) {
+      if (i < arr.length) {
+        console.log(arr[i]);
+        fn(++i)
+      }
+    }
+    
+    fn (0)
+    
+  </script>
+</body>
+</html>

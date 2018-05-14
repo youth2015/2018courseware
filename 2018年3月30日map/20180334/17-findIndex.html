@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title></title>
+</head>
+<body>
+  <script>
+    /**
+     * arr.findIndex(cb[,thisArg])
+     * 
+     * findIndex()方法返回数组中满足提供的测试函数的第一个元素的索引。否则返回-1。
+     *
+     * callback 为数组中每个元素执行的函数，该函数接收三个参数：
+     *   - currentValue(当前值) 数组中正在处理的当前元素。
+     *   - index(索引) 数组中正在处理的当前元素的索引。
+     *   - array findIndex()方法正在操作的数组。
+     *
+     * thisArg: 可选参数。当执行回调 函数时用作this的值(参考对象)。
+     *
+     */
+    
+     const arr = [1, 8, 4, 2, 5, 6]
+     
+     const ret = arr.findIndex((item, index, arr) => {
+       return item > 1
+     })
+     
+     console.log(ret);   // 1
+    
+    
+  </script>
+</body>
+</html>

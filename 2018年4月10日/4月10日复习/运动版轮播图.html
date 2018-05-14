@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+			list-style:none;
+		}
+		#box{
+			width:448px;
+			height: 245px;
+			border: 1px solid #000;
+			position: relative;
+			overflow: hidden;
+		}
+		ul{
+			position: absolute;
+		}
+		li{
+			width:448px;
+			height: 245px;
+			float: left;
+		}
+		a{
+			width:224px;
+			height:245px;
+			position: absolute;
+			text-align: center;
+			line-height: 245px;
+			color: #fff;
+			/* background:rgba(255,255,255,.3); */
+		}
+		img{
+			width:448px;
+		}
+		#prev{
+			left:0;
+		}
+		#next{
+			right:0;
+		}
+
+	</style>
+</head>
+<body>
+<div id="box">
+	<ul id="ul">
+		<li>
+			<img src="img/1.jpg" alt="">
+		</li>
+		<li>
+			<img src="img/2.jpg" alt="">
+		</li>
+		<li>
+			<img src="img/3.jpg" alt="">
+		</li>
+		<li>
+			<img src="img/4.jpg" alt="">
+		</li>
+	</ul>
+	<a href="javascript:;" id="prev">上一个</a>
+	<a href="javascript:;" id="next">下一个</a>
+</div>
+<script src="js/tween.js"></script>
+<script>
+	const oUl=document.getElementById("ul");
+	const aLi=oUl.getElementsByTagName("li");
+    const oPre=document.getElementById("prev");
+    const oNext=document.getElementById("next");
+    let num=0;
+    let w=448;
+    oUl.innerHTML+=oUl.innerHTML;//先复制一份，然后再获取它的长度
+    let len=aLi.length;
+    oUl.style.width= w * len +"px";
+
+    oNext.onclick=function(){
+        num++;
+        if(num==len){
+            oUl.style.left= (-len/2-1)*w+"px";
+            num=len/2;
+        }
+        move({
+            el:oUl,
+            attr:{
+                left:-num*w
+            },
+            d:500
+        })
+    };
+    oPre.onclick=function(){
+        num--;
+        if(num<=0){
+            oUl.style.left=-len/2 * w+"px";
+            num=len/2 - 1;
+        }
+        move({
+            el:oUl,
+            attr:{
+                left:-num * w
+            },
+            d:500
+        })
+    }
+
+
+</script>
+</body>
+</html>

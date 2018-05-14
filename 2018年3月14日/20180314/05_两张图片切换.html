@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title></title>
+</head>
+<body>
+  <img src="img/1.jpg" width="600">
+  <script>
+    // 点击图片，如果是1.jgp就变成2.jpg，否则就是1.jpg
+    
+    var img = document.querySelector('img');
+    
+    var invoke = true
+    
+    img.onclick = function (){
+      // img.src === 'img/1.jpg' 不能当作判断条件
+      // if (invoke) {
+      //   img.src = 'img/2.jpg'
+      // } else {
+      //   img.src = 'img/1.jpg'
+      // }
+      img.src = invoke ? './img/2.jpg' : './img/1.jpg';
+      invoke = !invoke;
+    }
+    
+  
+  </script>
+</body>
+</html>

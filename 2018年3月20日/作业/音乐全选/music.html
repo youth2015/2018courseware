@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		*{
+			margin:0;
+			padding:0;
+			list-style:none;
+		}
+		.cc:after{
+			content: "";
+			overflow: hidden;
+			clear: both;
+		}
+		.cc{
+			zoom: 1;
+		}
+		body{
+			background: #000;
+		}
+		.musicBg{
+			width: 764px;
+			height: 500px;
+			background: url(img/bg.png) no-repeat;
+			margin:50px auto 0;
+			position: relative;
+		}
+		.musicMin{
+			width: 480px;
+			height: 310px;
+			background: #fff;
+			border-radius: 2px;
+			margin:0 auto;
+			position:absolute;
+			top:50%;
+			left:50%;
+			-webkit-transform:translate(-50%,-50%);
+		}
+		#list{}
+		#list li{
+			height: 34px;
+			line-height: 34px;
+			padding:0 15px;
+			cursor: pointer;
+		}
+		#list li.liColor{
+			background: #B22222;
+		}
+		#list .active1{
+			background: #B22222;
+		}
+		#list li input{
+			float: left;
+			width:20px;
+			height: 20px;
+			margin-top:8px;
+			margin-right: 10px;
+			}
+		#list li span{
+			display:inline-block;
+			font-size: 16px;
+			}
+		#list li .sleft{
+			float: left;
+		}
+		#list li .sright{
+			float: right;
+		}
+		.footer{
+			height: 35px;
+			line-height: 35px;
+			padding:10px;
+			background:firebrick;
+		}
+		.footer li{
+			float: left;
+			width: 100px;
+			color: #fff;
+			cursor: pointer;
+		}
+		#list li:hover{
+			background:crimson;
+		}
+		.footer li .Allinput{
+			width:20px;
+			height: 20px;
+			float: left;
+			margin-top:8px;
+			margin-right: 10px;
+		}
+		.footer li .sQx{
+			float: left;
+		}
+		.footer li em{
+			width: 24px;
+			height: 20px;
+			display: inline-block;
+			background:url(img/1.png) no-repeat;
+			float: left;
+			margin-top: 8px;
+			margin-right: 5px;
+		}
+		.footer li span{
+			float: left;
+			display: inline-block;
+
+		}
+		.footer li .em1{
+			width: 24px;
+			height: 25px;
+			margin-top:5px;
+			background:url(img/1.png) no-repeat 0 -21px;
+		}
+		.footer li .em2{
+			width: 24px;
+			height: 28px;
+			margin-top:5px;
+			background:url(img/1.png) no-repeat 0 -45px;
+		}
+	</style>
+	<body>
+		<div class="musicBg">
+			<div class="musicMin cc">
+				<ul id="list">
+					<li>
+						<input type="checkbox" class="ipt" />
+						<span class="sleft">泡沫</span>
+						<span class="sright">邓紫琪</span>
+					</li>
+					<li class="active1">
+						<input type="checkbox" class="ipt"  />
+						<span class="sleft">说爱你</span>
+						<span class="sright">蔡依林</span>
+					</li>
+					<li>
+						<input type="checkbox" class="ipt"  />
+						<span class="sleft">稻香</span>
+						<span class="sright">周杰伦</span>
+					</li>
+					<li class="active1">
+						<input type="checkbox" class="ipt"  />
+						<span class="sleft">泡沫</span>
+						<span class="sright">邓紫琪</span>
+					</li>
+					<li>
+						<input type="checkbox" class="ipt"  />
+						<span class="sleft">我的梦</span>
+						<span class="sright">张靓颖</span>
+					</li>
+					<li class="active1">
+						<input type="checkbox" class="ipt"  />
+						<span class="sleft">怎么说不爱我</span>
+						<span class="sright">萧敬腾</span>
+					</li>
+					<li>
+						<input type="checkbox" class="ipt"  />
+						<span class="sleft">无处安放</span>
+						<span class="sright">白若溪</span>
+					</li>
+				</ul>
+				
+				<ul class="footer cc">
+					<li>
+						<input type="checkbox" class="Allinput"/>
+						<span class="sQx">全选</span>
+					</li>
+					<li>
+						<em></em>
+						<span class="sc">收藏</span>
+					</li>
+					<li>
+						<em class="em1"></em>
+						<span class="sc tj">添加</span>
+					</li>
+					<li>
+						<em class="em2"></em>
+						<span class="sc del">删除</span>
+					</li>
+				</ul>
+			</div>
+		</div>
+		
+		<script type="text/javascript">
+			window.onload=function(){
+				var oList=document.querySelector("#list");
+				var aLi=oList.querySelectorAll("li");
+				
+				var oFor=document.querySelector(".footer");
+				var iLi=oFor.querySelectorAll("li");
+				
+				var oInput=document.querySelectorAll(".ipt");
+				var allInput=document.querySelector(".Allinput");
+				//console.log(allInput)
+				var num=0;
+				var Len=aLi.length;
+				var num1 = 0;
+				
+//				for(var i=0;i<Len;i++){
+//					aLi[i].index=i;
+//				
+//					aLi[i].onclick=function(){	
+//						for(var i=0;i<oInput.length;i++){
+//							oInput[i].index=i;
+//							if(offoN){
+//								oInput[this.index].checked='check';
+//							}else{
+//								oInput[this.index].checked='';
+//							}
+//							//offoN=!offoN;
+//							
+//						}
+//						this.classList.add("liColor");	
+//					}
+//				}
+//
+				for(var i=0;i<Len;i++){
+					aLi[i].index=i;
+					aLi[i].offoN = true;
+					aLi[i].onclick=function(){		
+							num1 = 0;
+							if(aLi[this.index].offoN){
+								oInput[this.index].checked='check';
+								aLi[this.index].offoN=!aLi[this.index].offoN;
+							}else{
+								oInput[this.index].checked='';
+								aLi[this.index].offoN=!aLi[this.index].offoN;
+							}
+							//offoN=!offoN;					
+							this.classList.add("liColor");	
+							
+							for(var i=0;i<Len;i++){
+								if(!aLi[i].offoN){
+									num1++;
+								}
+							}
+							if(num1 == Len){
+								console.log(1)
+								allInput.checked='check';
+								}else{
+									allInput.checked='';
+								}
+							console.log(num1)						
+					}
+					
+				}
+				
+				for(var i=0;i<iLi.length;i++){
+					iLi[i].index=i;
+					iLi[i].onclick=function(){
+						if(!this.checked){
+							for(var i=0;i<oInput.length;i++){
+								oInput[i].checked=true;
+								
+							}
+							this.checked=true;	
+						}
+					}
+				}
+				
+				
+				
+//				for(var i=0;i<iLi.length;i++){
+//					iLi[i].index=i;
+//					iLi[i].onclick=function(){
+//						for(var i=0;i<allInput.length;i++){
+//							allInput[i].index=i;
+//							if(!this.checked){
+//								for(var i=0; i<oInput.length; i++){
+//									oInput[i].checked = true;
+//									aLi[i].classList.add("liColor");
+//								}
+//								this.checked=true;
+//								allInput[this.index].checked=true;
+//							}else{
+//								for(var i=0; i<oInput.length; i++){
+//									oInput[i].checked = false;
+//									aLi[i].classList.remove("liColor");
+//								}
+//								allInput[this.index].checked=false;
+//								this.checked=false;
+//							}
+//						}
+//					}
+//				}
+				
+			}
+		</script>
+	</body>
+</html>

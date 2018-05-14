@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.box{
+				width: 1000px;
+				height: 600px;
+				background: #68BCFA;
+				position: relative;
+			}
+			.text{
+				margin: 0;
+				width: 300px;
+				height: 500px;
+				line-height: 30px;	
+				position: absolute;			
+			}
+			.count{
+				display: inline-block;
+				width: 200px;
+				height: 20px;
+				position: absolute;
+				text-align: center;
+				left: 400px;
+				top: 410px;
+			}
+			.btn{
+				width: 200px;
+				height: 200px;
+				position: absolute;
+				left: 400px;
+				top: 200px;
+				
+			}
+			.textL{
+				top: 50px;
+				left: 20px;
+			}
+			.textR{
+				top: 50px;
+				right: 20px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<textarea name="" rows="" cols="" class="text textL"></textarea>
+			<input type="button" name="" id="" value="把文字右移"  class="btn"/>
+			<span class="count">0/0</span>
+			<textarea name="" rows="" cols="" class="text textR"></textarea>
+		</div>
+		<script type="text/javascript">
+			const textL = document.querySelector('.textL');
+			const textR = document.querySelector('.textR');
+			const btn = document.querySelector('.btn');
+			const count = document.querySelector('.count');
+			let content = '';
+			let content2 = '';
+			let timer = null;
+			let num ;
+			let numL = 0;
+			let numR;
+			function transfer(){
+				content = textL.value;
+				content2 += content.slice(0, 1);
+				content = content.substring(1);
+				textL.value = content;
+				textR.value = content2;
+				numL++;
+				num--;
+				count.innerText = `${numL}/${numR}`
+				btn.disabled = true;
+				btn.value = "点不了，不给找错的机会"
+				if(num == 0){
+					clearInterval(timer);
+					console.log('没了');
+					btn.disabled = false;
+					btn.value = "把文字右移"
+				}
+				
+			}
+			btn.onclick = function (){
+				textR.value = '';
+				content2 = '';
+				numL = '';
+				num = textL.value.length;
+				numR = 	num;		
+				timer = setInterval(transfer,1000);				
+			}
+			
+		</script>
+	</body>
+</html>

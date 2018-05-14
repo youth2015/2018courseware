@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title></title>
+</head>
+<body>
+  <div class="box"></div>
+  <script>
+    /**
+     * JS中的数据类型
+     * > 基本数据类型
+     *  - Undefined 
+     *  - Null 
+     *  - Number
+     *  - Boolean
+     *  - String
+     *  - Symbol 
+     *
+     * > 引用数据类型
+     *  - Object (对象)
+     *    - {}
+     *    - DOM元素
+     *    - []
+     *    - function
+     *    - JS里除了基本数据类型，剩下的都是对象。
+     *
+     * > 使用 typeof 要判断的数据 来区分数据类型
+     */
+  
+     // * 基本数据类型和引用数据类型的区别
+     
+    // 返回值 就是 某条语句的返回结果
+    
+    // typeof 返回的的结果是字符串，这是个表示 什么类型的 英文字符串 而且首字符是小写的
+    
+    console.log(typeof undefined);  //  'undefined'
+    console.log(typeof null);  // 'object'
+    console.log(typeof 1);  // 'number'
+    console.log(typeof true); // 'boolean'
+    console.log(typeof 'a');  // 'string'
+    console.log(typeof Symbol());  // 'symbol'
+    console.log(typeof function(){});   // 'function'
+    console.log(typeof []); // 'object'
+    console.log(typeof {}); // 'object'
+    
+    // if (typeof xxx === 'number') {
+    //   console.log(xxx);
+    // }
+    
+    var a = 1;
+    var b = a;   // 实际上是复制了一份  1
+    
+    a = 3;
+    
+    console.log(b);  // 1
+    
+    
+    var o1 = {}
+    var o2 = o1   // 实际上 只是 复制了一个引用
+    
+    o1.a = 1;
+    
+    console.log(o2.a);  // 1
+    
+    
+    
+    
+    
+  </script>
+</body>
+</html>

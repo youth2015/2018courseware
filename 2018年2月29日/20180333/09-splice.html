@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title></title>
+</head>
+<body>
+  <script>
+    /**
+     * arr.splice(start)
+     * arr.splice(start, deleteCount) 
+     * arr.splice(start, deleteCount, item1, item2, ...)
+     *
+     * splice() 方法通过删除现有元素和/或添加新元素来更改一个数组的内容。
+     *
+     * start: 指定修改的开始位置（从0计数）。如果超出了数组的长度，则从数组末尾开始添加内容；如果是负值，则表示从数组末位开始的第几位（从1计数）。
+     *
+     * deleteCount: 整数，表示要移除的数组元素的个数。如果 deleteCount 是 0，则不移除元素。这种情况下，至少应添加一个新元素。如果 deleteCount 大于start 之后的元素的总数，则从 start 后面的元素都将被删除（含第 start 位）。
+     *
+     * item1, item2, ... 要添加进数组的元素,从start 位置开始。如果不指定，则 splice() 将只删除数组元素。
+     *
+     * 注意：返回值是一个数组，包含了被删除的元素。
+     */
+    
+    const arr = [1, 2, 3, 4, 6]
+    
+    // 删除 2 3
+    // console.log(arr.splice(1, 2));  //  [2, 3]
+    // console.log(arr);  // [1, 4, 6]
+    
+    // 把 2替换为 'x', 'y'
+    console.log(arr.splice(1, 1, 'x', 'y')); // [2]
+    console.log(arr);  // [1, "x", "y", 3, 4, 6]
+    
+
+  </script>
+</body>
+</html>

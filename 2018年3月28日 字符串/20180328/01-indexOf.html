@@ -1,0 +1,29 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title></title>
+</head>
+<body>
+  <script>
+    /**
+     * str.indexOf(searchValue[, fromIndex])
+     * 
+     * indexOf方法返回调用 String对象中第一次出现的指定值的索引，开始在 fromIndex进行搜索，如果未找到该值，则返回-1。
+     * 
+     * searchValue: 一个字符串表示被查找的值。
+     * fromIndex: 表示调用该方法的字符串中开始查找的位置。可以是任意整数。默认值为 0。如果 fromIndex < 0 则查找整个字符串（如同传进了 0）。如果 fromIndex >= str.length，则该方法返回 -1，除非被查找的字符串是一个空字符串，此时返回 str.length。
+     */
+    
+  var str = 'hello,javascript!';
+    
+    // console.log(str.indexOf('java'));   // 6
+    // console.log(str.indexOf('a'));  // 7
+    // console.log(str.indexOf('a', 8));   // 9
+    console.log(str.indexOf('xxx'));  // -1
+    
+  </script>
+</body>
+</html>

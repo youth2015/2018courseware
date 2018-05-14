@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <input type="text" id="txt">
+    <button id="btn">添加</button>
+    <ul id="ulx">
+
+    </ul>
+
+<script>
+    const oBtn=document.getElementById("btn");
+
+    const oTxt=document.getElementById("txt");
+
+    const oUl=document.getElementById("ulx");
+
+
+
+    oBtn.onclick=function () {
+        let v=oTxt.value;
+        let p=document.createElement("p");
+        p.innerHTML=v;
+
+        oUl.insertBefore(p,oUl.children[0]);
+
+        oTxt.value="";
+    }
+</script>
+</body>
+</html>

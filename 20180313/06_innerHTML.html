@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title></title>
+</head>
+<body>
+  <h1 id="title" class="title">标题<span>副标题</span></h1>
+  
+  
+  <script>
+    /**
+     * innerHTML 表示元素标签内的 html 内容的
+     * 元素.innerHTML  获取某个元素内的html内容
+     * 元素.innerHTML = '新的内容';  修改某个元素内的html内容
+     *
+     * innerHTML 获取到的内容和操作的内容都是字符串
+     */
+    
+    var title = document.getElementById('title');
+    
+    console.log(title.innerHTML);
+    
+    document.onclick = function (){
+      title.innerHTML = '<img src="./img/2.jpg" alt="" />'
+    }
+  
+  </script>
+  
+  
+  
+</body>
+</html>

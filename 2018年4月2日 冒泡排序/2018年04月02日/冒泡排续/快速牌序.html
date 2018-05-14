@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        const arr=[5,4,3,2,1];
+        //const arr=[85, 24, 63, 45, 17, 31, 96, 50];
+        function  QueryStrat(arr) {
+            if(arr.length<=1) return arr;
+
+            let middle=arr.splice(~~(arr.length/2),1)[0];//~~代表取整;
+
+            const left=[];
+            const right=[];
+
+            while (arr.length){
+                if(arr[0]<middle){
+                    left.push(arr.shift());
+                }else {
+                    right.push(arr.shift());
+                }
+            };
+            return QueryStrat(left).concat(middle,QueryStrat(right));
+
+        }
+        console.log(QueryStrat(arr));
+    </script>
+</body>
+</html>

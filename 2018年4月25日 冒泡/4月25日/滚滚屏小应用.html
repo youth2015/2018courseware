@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+	body,html{
+	    overflow-y:hidden;
+	}
+	*{
+	    margin: 0;
+	    padding:0;
+	    list-style: none;
+	}
+	ul{
+	    transition: 1s;
+	}
+	</style>
+	<body>
+		<ul id="ul"></ul>	
+		
+		
+		<script>
+			const oUl=document.getElementById("ul");
+			let num=0;
+			let html="";
+			let arr=["red","green","yellow","blue","pink"];
+
+			let iH=window.innerHeight;
+			let iW=window.innerWidth;
+			
+			arr.forEach(e=>html+=`<li style="width:${iW}px;height:${iH}px;background:${e}"></li>`)
+			oUl.innerHTML=html;
+			
+			
+			window.onresize=function(){
+				let num=0;
+				let html="";
+				let arr=["red","green","yellow","blue","pink"];
+				let iH=window.innerHeight;
+				let iW=window.innerWidth;			
+				
+				arr.forEach(e=>html+=`<li style="width:${iW}px;height:${iH}px;background:${e}"></li>`)
+				oUl.innerHTML=html;
+				oUl.style.transform="none";
+				oUl.style.transform='translateY('+ -num*iH+'px)';
+				
+			}
+			
+			
+			let off=true;
+			myScroll(oUl,function(o){
+				
+				if(!off)return;
+				
+				off=false;
+				
+				oUl.style.transition="1s";
+				//鼠标滚轮向下的时候
+				if(o){
+					num--;
+					if(num<0){
+						num=0;
+					}
+				}else{
+					num++;
+				
+					if(num>arr.length-1){
+						num=arr.length-1
+					}
+				}
+				
+				oUl.style.transform='translateY('+ -num*iH+'px)';
+				setTimeout(()=>off=true,1000);
+				
+				//setTimeout(function(){},1000)
+				
+			})
+		
+		
+			//调用滚滚屏的封装函数			
+			function myScroll(obj,cb){
+				let o=true;
+				if(typeof obj.onmousewheel==="object"){
+					obj.addEventListener("mousewheel",fn);
+				}else{
+					window.addEventListener("DOMMouseScroll",fn);
+				}
+				
+				function fn(ev){
+					if(ev.wheelDelta){
+						o=ev.wheelDelta>0?true:false;
+						
+					}else{
+						
+						o=ev.delta<0?true:false;
+					}
+					
+					cb(o)
+				}
+				
+			};
+			
+			
+			
+			
+		</script>
+	</body>
+</html>

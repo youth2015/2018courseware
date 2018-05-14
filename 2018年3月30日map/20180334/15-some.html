@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title></title>
+</head>
+<body>
+  <script>
+    /**
+     * arr.some(cb[,thisArg])
+     * 
+     * some 为数组中的每一个元素执行一次 callback 函数，直到找到一个使得 callback 返回一个“真值”（即可转换为布尔值 true 的值）。如果找到了这样一个值，some 将会立即返回 true。否则，some 返回 false。callback 只会在那些”有值“的索引上被调用，不会在那些被删除或从来未被赋值的索引上调用。
+     *
+     * callback 为数组中每个元素执行的函数，该函数接收三个参数：
+     *   - currentValue(当前值) 数组中正在处理的当前元素。
+     *   - index(索引) 数组中正在处理的当前元素的索引。
+     *   - array forEach()方法正在操作的数组。
+     *
+     * thisArg: 可选参数。当执行回调 函数时用作this的值(参考对象)。
+     *
+     * 返回值: 布尔值
+     */
+    
+    const arr = [3, 2, 4, 1]
+    
+    const ret = arr.some((item, i, arr) => {
+        return !(item%2)
+    })
+    
+    console.log(ret);
+    
+  
+    
+  </script>
+</body>
+</html>

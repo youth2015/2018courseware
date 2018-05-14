@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title></title>
+  <style>
+    .btn {
+      width: 200px;
+      height: 40px;
+    }
+    .box {
+      width: 200px;
+      height: 200px;
+      background: skyblue;
+    }
+  </style>
+</head>
+<body>
+  <button class="btn">按钮</button>
+  <div class="box"></div>
+  
+  <script>
+    /**
+     * 点击按钮，让div显示和隐藏
+     */
+    
+    // 如果这个div是显示的那么就隐藏，如果是隐藏的就显示
+    
+    var btn = document.querySelector('.btn');
+    var box = document.querySelector('.box');
+    
+    var invoke = true;
+    
+    btn.onclick = function (){
+      // 如果这个 div 是显示的 那么就隐藏
+      if (invoke) {  // 如果写代码的时候，发现没有可以使用的条件，那么就去创造一个条件
+        box.style.display = 'none';
+        // invoke = false;
+      } else { // 否则 就 显示
+        box.style.display = '';
+        // invoke = true;
+      }
+      
+      invoke = !invoke;
+    }
+    
+    
+  </script>
+  
+  
+</body>
+</html>

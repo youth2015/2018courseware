@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script type="text/javascript">
+        let examplearr=[8,94,15,88,55,76,21,39];
+        function sortarr(arr) {
+            for (let i=0;i<arr.length-1;i++){
+                for (let j=0;j<arr.length-i-1;j++){
+                    let a=arr[j];
+                    let b=arr[j+1];
+                    if (a>b){
+                        [arr[j],arr[j+1]]=[b,a];
+                    }
+                }
+                return arr
+            }
+        }
+        console.log(sortarr(examplearr));
+    </script>
+</body>
+</html>
